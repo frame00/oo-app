@@ -1,15 +1,16 @@
-import {Callback} from '../../type/callback'
+import {CallbackOptions} from '../../type/callback'
 import notFound from '../404'
 import _head from '../../template/head'
 import _footer from '../../template/footer'
 import _html from '../../template/html'
 import title from '../../lib/title'
 
-export default (paths: Array<string>, callback: Callback): void => {
+export default (paths: Array<string>): CallbackOptions => {
 	const [resource] = paths
 	if (paths.length > 1) {
-		return notFound(callback)
+		return notFound()
 	}
+
 	const body = `
 <style>
 	@import './style.scss';
@@ -27,5 +28,8 @@ export default (paths: Array<string>, callback: Callback): void => {
 	`
 	const head = _head({title: title('Sign In/Sign Up')})
 	const html = _html({head, body})
-	callback(null, html)
+	return {
+		status: 200,
+		body: html
+	}
 }

@@ -1,9 +1,12 @@
-import {Callback} from '../type/callback'
-import html from '../template/html'
-import head from '../template/head'
+import {CallbackOptions} from '../type/callback'
+import _html from '../template/html'
+import _head from '../template/head'
 
-export default (callback: Callback): void => {
-	const htmlHead = head({title: '404 Not found'})
-	const htmlHtml = html({head: htmlHead, body: ''})
-	callback(null, htmlHtml)
+export default (): CallbackOptions => {
+	const head = _head({title: '404 Not found'})
+	const html = _html({head, body: ''})
+	return {
+		status: 404,
+		body: html
+	}
 }

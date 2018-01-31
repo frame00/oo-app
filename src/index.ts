@@ -1,18 +1,18 @@
-import {Callback} from './type/callback'
+import {CallbackOptions} from './type/callback'
 import notFound from './page/404'
 import sign from './page/sign'
 import user from './page/user'
 
-export default (paths: Array<string>, callback: Callback): void => {
+export default (paths: Array<string>): CallbackOptions => {
 	const [resource, sub] = paths
 
 	switch (resource) {
 		case 'sign':
 			if (sub) {
-				return notFound(callback)
+				return notFound()
 			}
-			return sign(paths, callback)
+			return sign(paths)
 		default:
-			user(paths, callback)
+			return user(paths)
 	}
 }

@@ -1,12 +1,12 @@
 import app from './index'
 import {APIGatewayEvent, ProxyCallback} from 'aws-lambda'
 
-export const handler = (event: APIGatewayEvent, _, callback: ProxyCallback) => {
+export const handler = async (event: APIGatewayEvent, _, callback: ProxyCallback): Promise<void> => {
 	const paths = event.path.replace(/^\//, '').split('/')
-	app(paths, (err, result, statusCode = 200) => {
-		callback(err, {
-			statusCode,
-			body: result
-		})
+	const result = await app(paths)
+	const {err = null, status: statusCode, body} = result
+	callback(err, {
+		statusCode,
+		body
 	})
 }
