@@ -1,0 +1,43 @@
+{
+  "name": "oo-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Templates for ooapp.co",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "rollup -c",
+    "prebuild": "npm run lint",
+    "lint": "tslint --fix --project ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frame00/oo-app.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/frame00/oo-app/issues"
+  },
+  "homepage": "https://github.com/frame00/oo-app#readme",
+  "dependencies": {
+    "typescript": "^2.6.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "0.0.31",
+    "@types/expect.js": "^0.3.29",
+    "@types/mocha": "^2.2.47",
+    "@types/node": "^9.4.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^5.0.0",
+    "postcss-cssnext": "^3.1.0",
+    "precss": "^3.1.0",
+    "rollup": "^0.55.1",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup-plugin-transform-postcss": "^1.0.5",
+    "rollup-plugin-typescript2": "^0.10.0",
+    "tslint": "^5.9.1",
+    "tslint-config-xo": "^1.4.0"
+  }
+}
