@@ -1,5 +1,6 @@
 main {
-	&[sign] {
-		display: flex;
-	}
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	box-sizing: border-box;
 }

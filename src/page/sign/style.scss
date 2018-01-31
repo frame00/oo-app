@@ -1,0 +1,24 @@
+main {
+	height: 100vh;
+	flex-direction: column;
+}
+.signins {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+    align-items: center;
+	justify-content: center;
+	.buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		transform: scale(1.4);
+	}
+}
+oo-sign-in {
+	width: 100%;
+	height: 4rem;
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}

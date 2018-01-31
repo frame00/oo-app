@@ -11,12 +11,19 @@ export default (paths: Array<string>, callback: Callback): void => {
 		return notFound(callback)
 	}
 	const body = `
+<style>
+	@import './style.scss';
+</style>
 <main ${resource}>
-	<oo-sign-in data-provider=google></oo-sign-in>
-	<oo-sign-in data-provider=facebook></oo-sign-in>
-	<oo-sign-in data-provider=github></oo-sign-in>
+	<div class=signins>
+		<div class=buttons>
+			<oo-sign-in data-provider=google></oo-sign-in>
+			<oo-sign-in data-provider=facebook></oo-sign-in>
+			<oo-sign-in data-provider=github></oo-sign-in>
+		</div>
+	</div>
+	${_footer()}
 </main>
-${_footer()}
 	`
 	const head = _head({title: title('Sign In/Sign Up')})
 	const html = _html({head, body})
