@@ -1,1 +1,1 @@
-export type Callback = (err: Error, result: string) => void
+export type Callback = (err: Error, result: string, status?: number) => void

@@ -1,15 +1,14 @@
 const {send} = require('micro')
-const html = require('./dist')
+const {execFile} = require('child_process')
 
 module.exports = async (req, res) => {
 	const {url} = req
 	const doc = await new Promise((resolve, reject) => {
-		const paths = url.replace(/^\//, '').split('/')
-		html(paths, (err, result) => {
+		const app = execFile('node', ['lambda.js', url], (err, stdout, stderr) => {
 			if (err) {
 				return reject(err)
 			}
-			return resolve(result)
+			resolve(stdout)
 		})
 	}).catch(err => {
 		send(res, 500, err)

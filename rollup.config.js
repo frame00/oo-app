@@ -11,9 +11,9 @@ export default {
 	globals: {
 		'aws-sdk': 'AWS'
 	},
-	input: 'src/index.ts',
+	input: 'src/lambda.ts',
 	output: {
-		file: 'dist/index.js',
+		file: 'dist/lambda.js',
 		name: 'ooapp',
 		format: 'umd'
 	},
