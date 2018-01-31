@@ -4,7 +4,8 @@ const html = require('./dist')
 module.exports = async (req, res) => {
 	const {url} = req
 	const doc = await new Promise((resolve, reject) => {
-		html(url, (err, result) => {
+		const paths = url.split('/')
+		html(paths, (err, result) => {
 			if (err) {
 				return reject(err)
 			}
