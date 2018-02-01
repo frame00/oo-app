@@ -6,5 +6,12 @@
 	}
 	@media (min-width: 768px) {
 		flex-direction: row;
+		main {
+			margin-left: 200px;
+		}
 	}
+}
+oo-projects {
+	max-width: 700px;
+	padding: 3rem;
 }
