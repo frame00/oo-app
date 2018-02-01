@@ -8,6 +8,7 @@
     "start": "micro server.js",
     "test": "mocha dist/test.js",
     "pretest": "BUILD_MODE=TEST npm run build",
+    "posttest": "rm dist/test.js",
     "build": "rollup -c",
     "prebuild": "npm run lint",
     "lint": "tslint --fix --project ./"
