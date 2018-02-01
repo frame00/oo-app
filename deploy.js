@@ -1,9 +1,16 @@
-const [, ,
+require('dotenv').config()
+
+let [, ,
 	FUNCTION_NAME,
 	IAM_KEY,
 	IAM_SECRET,
 	IAM_REGION
 ] = process.argv
+
+FUNCTION_NAME = FUNCTION_NAME || process.env.FUNCTION_NAME
+IAM_KEY = IAM_KEY || process.env.IAM_KEY
+IAM_SECRET = IAM_SECRET || process.env.IAM_SECRET
+IAM_REGION = IAM_REGION || process.env.IAM_REGION
 
 if (!FUNCTION_NAME || !IAM_KEY || !IAM_SECRET || !IAM_REGION) {
 	return
