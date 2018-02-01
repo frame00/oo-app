@@ -12,7 +12,8 @@
     "posttest": "rm dist/test.js",
     "build": "rollup -c",
     "prebuild": "npm run lint",
-    "lint": "tslint --fix --project ./"
+    "lint": "tslint --fix --project ./",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
