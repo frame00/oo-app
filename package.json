@@ -7,6 +7,7 @@
   "scripts": {
     "start": "micro server.js",
     "test": "mocha dist/test.js",
+    "deploy": "node deploy.js",
     "pretest": "BUILD_MODE=TEST npm run build",
     "posttest": "rm dist/test.js",
     "build": "rollup -c",
@@ -30,6 +31,9 @@
     "@types/aws-lambda": "0.0.31",
     "@types/mocha": "^2.2.47",
     "@types/node": "^9.4.0",
+    "gulp": "^3.9.1",
+    "gulp-aws-lambda": "^1.0.11",
+    "gulp-zip": "^4.1.0",
     "micro": "^9.1.0",
     "mocha": "^5.0.0",
     "postcss-cssnext": "^3.1.0",

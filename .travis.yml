@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - node
+branches:
+  only:
+  - master
+after_success:
+  - npm run deploy $FUNCTION_NAME $IAM_KEY $IAM_SECRET $IAM_REGION
+env:
+  global:
+    secure: QMJcLoza4r+wUBKzxz4PmlT/hL2Vb15cAlDa1b+ahos9sgLqsW5PBMvOxsCyPyoGmswUMb2YWnQiuzTv5lvCN0o1Nh3taReqlNsjvYI7qEUaUS6cUbjeEBIrvcOK0B/B1x0KdrKIdqeQZ9QAZJPU0jqbF2G+d3b59kOc5n48XRxQ8CRJOd+rNy2F32A0EMikCNgBMnXlN+bpAjNnyCH0zxGKbnmgBtDATyqP11OY0XWfsDOTMRPoSzEiNldp9N6t2166aKaas5gp0IEP9P+rcDLkcFIw5C98Q/mkW2881gkHzOX8j9lp9JP0vXEPWeR8BrH7F+aLTX5oB9PDBSwRpkMh8G7+7SBv0VlDEs4zHzpIaaj31i9duiMz3QR9U4NrqXUkPw4qCgFesf/DwvzV/fmQ6Ck8laJ2bUpX7YkJm1T6kG588Soqd09rGJj5gAfIEuXZcGfFyOnXlB8lfU8HZnSDsBeJhaeqXgPAav1NwALwf3Ppa8PbFNMFACEQsDiOvBwgZpyvn7EYqUiXdf933wJeoe+1pJYKX40cGwt17X8GuBdcKUO1e/8yuvQQPB3lboSK7nm1fBcwMU/SUeOLzG1uaXH1JRa1ElPnvk1XqrAOWU9jRPALZ22CvqDufKDLlL54Ym066UuzkwZsER5kFit1ELbTgAOpa9hsuSo1ST4=
