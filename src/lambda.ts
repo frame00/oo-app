@@ -7,6 +7,9 @@ export const handler = async (event: APIGatewayEvent, _, callback: ProxyCallback
 	const {err = null, status: statusCode, body} = result
 	callback(err, {
 		statusCode,
-		body
+		body,
+		headers: {
+			'content-type': 'text/html; charset=utf-8'
+		}
 	})
 }
