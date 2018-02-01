@@ -124,6 +124,16 @@ oo-sign-in:not(:last-child) {
 </oo-footer>
 </main>
 
+<script>
+	function signedIn() {
+		window.location.href = '/dashboard'
+	}
+	window.document.querySelectorAll('oo-sign-in').forEach(el => {
+		el.addEventListener('signedin', signedIn)
+	})
+</script>
+
+
 		<script async src="//elements.ooapp.co/stable/oo-elements.js"></script>
 	</body>
 </html>

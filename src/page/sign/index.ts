@@ -4,6 +4,7 @@ import _head from '../../template/head'
 import _footer from '../../template/footer'
 import _html from '../../template/html'
 import title from '../../lib/title'
+import script from './script'
 
 export default (paths: Array<string>): CallbackOptions => {
 	const [resource] = paths
@@ -25,6 +26,7 @@ export default (paths: Array<string>): CallbackOptions => {
 	</div>
 	${_footer()}
 </main>
+${script}
 	`
 	const head = _head({title: title('Sign In/Sign Up')})
 	const html = _html({head, body})
