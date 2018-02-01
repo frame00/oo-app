@@ -1,0 +1,134 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Double O - Dashboard</title>
+	<link rel="preload" as="script" href="//elements.ooapp.co/stable/oo-elements.js">
+	<link rel="preload" as="style" href="//fonts.googleapis.com/css?family=Roboto:100,400">
+	<link href="//fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
+	<style>body {
+	margin: 0;
+}
+main {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+oo-footer {
+	-ms-flex-item-align: end;
+	    align-self: flex-end;
+	width: 100%;
+}
+.container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.container main {
+		-webkit-box-flex: 1;
+		    -ms-flex-positive: 1;
+		        flex-grow: 1;
+	}
+@media (min-width: 768px) {
+	.container {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+	}
+}
+oo-nav {
+	height: 100vh;
+    width: 200px;
+}
+	</style>
+</head>
+	<body>
+
+<style>main {
+	height: 100vh;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.links {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+.links a {
+		text-decoration: none;
+		font-family: Roboto, sans-serif;
+		padding: 48px;
+		padding: 3rem;
+		font-size: 48px;
+		font-size: 3rem;
+		font-weight: 100;
+		color: inherit;
+		-webkit-tap-highlight-color: transparent;
+		-webkit-transition: -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+		transition: -webkit-box-shadow 0.5s, -webkit-transform 0.5s;
+		transition: box-shadow 0.5s, transform 0.5s;
+		transition: box-shadow 0.5s, transform 0.5s, -webkit-box-shadow 0.5s, -webkit-transform 0.5s
+	}
+.links a:hover {
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .18824), 0 16px 84px rgba(0, 0, 0, .12549);
+	        box-shadow: 0 1px 1px rgba(0, 0, 0, .18824), 0 16px 84px rgba(0, 0, 0, .12549);
+	-webkit-transform: translateY(-5px);
+	        transform: translateY(-5px);
+}
+</style>
+<main>
+	<div class=links>
+		<a href=@UID@/projects slot=item>Projects</a>
+		<a href=@UID@/settings slot=item>Settings</a>
+	</div>
+
+<oo-footer>
+	<a slot=item href="/first">First</a>
+	<a slot=item href="/second">Second</a>
+	<a slot=item href="/third">Third</a>
+</oo-footer>
+</main>
+
+<script>
+	(() => {
+		const uid = window.localStorage.getItem('oo:uid')
+		window.document.querySelectorAll('a[href*="@UID@"]').forEach(el => {
+			el.setAttribute('href', el.getAttribute('href').replace('@UID@', uid))
+		})
+	})()
+</script>
+
+
+		<script async src="//elements.ooapp.co/stable/oo-elements.js"></script>
+	</body>
+</html>

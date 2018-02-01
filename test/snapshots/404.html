@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>404 Not found</title>
 	<link rel="preload" as="script" href="//elements.ooapp.co/stable/oo-elements.js">
+	<link rel="preload" as="style" href="//fonts.googleapis.com/css?family=Roboto:100,400">
+	<link href="//fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
 	<style>body {
 	margin: 0;
 }
@@ -26,6 +28,32 @@ oo-footer {
 	-ms-flex-item-align: end;
 	    align-self: flex-end;
 	width: 100%;
+}
+.container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.container main {
+		-webkit-box-flex: 1;
+		    -ms-flex-positive: 1;
+		        flex-grow: 1;
+	}
+@media (min-width: 768px) {
+	.container {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+	}
+}
+oo-nav {
+	height: 100vh;
+    width: 200px;
 }
 	</style>
 </head>
