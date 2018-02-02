@@ -44,6 +44,12 @@ oo-footer {
 		    -ms-flex-positive: 1;
 		        flex-grow: 1;
 	}
+.container main > *:first-child {
+			width: 100%;
+			max-width: 700px;
+			padding: 48px;
+			padding: 3rem;
+		}
 @media (min-width: 768px) {
 	.container {
 		-webkit-box-orient: horizontal;
@@ -54,11 +60,6 @@ oo-footer {
 	.container main {
 			margin-left: 230px;
 	}
-}
-oo-projects {
-	max-width: 700px;
-	padding: 48px;
-	padding: 3rem;
 }
 oo-nav {
 	position: fixed;
@@ -71,10 +72,6 @@ oo-nav {
 </head>
 	<body>
 
-<style>oo-projects {
-	width: 100%;
-}
-</style>
 <div class=container>
 
 <style>
@@ -96,8 +93,19 @@ oo-nav {
 		style="fill: #ffd600; white-space: pre;"/>
 </svg></a>
 	</div>
-	<a slot=item active href=/xxx/projects>Projects</a><a slot=item  href=/xxx/settings>Settings</a>
+	<a slot=item active href=/projects/@IAM@>Projects</a><a slot=item  href=/settings/@IAM@>Settings</a>
 </oo-nav>
+
+<script>
+	(() => {
+		const uid = window.localStorage.getItem('oo:uid')
+		if(!uid) return window.location.href = '/sign'
+		window.document.querySelectorAll('a[href*="@IAM@"]').forEach(el => {
+			el.setAttribute('href', el.getAttribute('href').replace('@IAM@', uid))
+		})
+	})()
+</script>
+
 	<main>
 		<oo-projects data-iam=xxx></oo-projects>
 

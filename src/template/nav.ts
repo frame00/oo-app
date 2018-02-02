@@ -1,4 +1,5 @@
 import logo from './logo'
+import iam from '../lib/exp-iam'
 
 interface Options {
 	items: Array<{
@@ -30,5 +31,6 @@ export default (opts: Options): string => {
 		<a href=/dashboard>${logo('#ffd600')}</a>
 	</div>
 	${link}
-</oo-nav>`
+</oo-nav>
+${iam}`
 }

@@ -17,12 +17,12 @@ export default (paths: Array<string>): CallbackOptions => {
 	${_nav({
 		items: [
 			{
-				href: `/${uid}/projects`,
+				href: `/projects/@IAM@`,
 				label: 'Projects',
 				active: true
 			},
 			{
-				href: `/${uid}/settings`,
+				href: `/settings/@IAM@`,
 				label: 'Settings'
 			}
 		]

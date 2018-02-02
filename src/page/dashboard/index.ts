@@ -4,7 +4,7 @@ import _head from '../../template/head'
 import _footer from '../../template/footer'
 import _html from '../../template/html'
 import title from '../../lib/title'
-import script from './script'
+import iam from '../../lib/exp-iam'
 
 export default (paths: Array<string>): CallbackOptions => {
 	if (paths.length > 1) {
@@ -17,13 +17,12 @@ export default (paths: Array<string>): CallbackOptions => {
 </style>
 <main>
 	<div class=links>
-		<a href=projects/@UID@ slot=item>Projects</a>
-		<a href=settings/@UID@ slot=item>Settings</a>
+		<a href=/projects/@IAM@ slot=item>Projects</a>
+		<a href=/settings/@IAM@ slot=item>Settings</a>
 	</div>
 	${_footer()}
 </main>
-${script}
-	`
+${iam}`
 	const head = _head({title: title('Dashboard')})
 	const html = _html({head, body})
 	return {

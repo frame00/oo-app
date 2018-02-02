@@ -44,6 +44,12 @@ oo-footer {
 		    -ms-flex-positive: 1;
 		        flex-grow: 1;
 	}
+.container main > *:first-child {
+			width: 100%;
+			max-width: 700px;
+			padding: 48px;
+			padding: 3rem;
+		}
 @media (min-width: 768px) {
 	.container {
 		-webkit-box-orient: horizontal;
@@ -54,11 +60,6 @@ oo-footer {
 	.container main {
 			margin-left: 230px;
 	}
-}
-oo-projects {
-	max-width: 700px;
-	padding: 48px;
-	padding: 3rem;
 }
 oo-nav {
 	position: fixed;
@@ -120,8 +121,8 @@ oo-nav {
 </style>
 <main>
 	<div class=links>
-		<a href=projects/@UID@ slot=item>Projects</a>
-		<a href=settings/@UID@ slot=item>Settings</a>
+		<a href=/projects/@IAM@ slot=item>Projects</a>
+		<a href=/settings/@IAM@ slot=item>Settings</a>
 	</div>
 
 <oo-footer>
@@ -134,12 +135,12 @@ oo-nav {
 <script>
 	(() => {
 		const uid = window.localStorage.getItem('oo:uid')
-		window.document.querySelectorAll('a[href*="@UID@"]').forEach(el => {
-			el.setAttribute('href', el.getAttribute('href').replace('@UID@', uid))
+		if(!uid) return window.location.href = '/sign'
+		window.document.querySelectorAll('a[href*="@IAM@"]').forEach(el => {
+			el.setAttribute('href', el.getAttribute('href').replace('@IAM@', uid))
 		})
 	})()
 </script>
-
 
 		<script async src="//elements.ooapp.co/stable/oo-elements.js"></script>
 	</body>
