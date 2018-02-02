@@ -3,6 +3,7 @@ import notFound from '../404'
 import _head from '../../template/head'
 import _footer from '../../template/footer'
 import _html from '../../template/html'
+import _nav from '../../template/nav'
 import title from '../../lib/title'
 
 export default (paths: Array<string>): CallbackOptions => {
@@ -16,10 +17,19 @@ export default (paths: Array<string>): CallbackOptions => {
 	@import './style.scss';
 </style>
 <div class=container>
-	<oo-nav>
-		<a slot=item active href=projects/${uid}>Projects</a>
-		<a slot=item href=settings/${uid}>Settings</a>
-	</oo-nav>
+	${_nav({
+		items: [
+			{
+				href: `/${uid}/projects`,
+				label: 'Projects',
+				active: true
+			},
+			{
+				href: `/${uid}/settings`,
+				label: 'Settings'
+			}
+		]
+	})}
 	<main>
 		<oo-projects data-iam=${uid}></oo-projects>
 		${_footer()}
