@@ -3,6 +3,11 @@
 	flex-direction: column;
 	main {
 		flex-grow: 1;
+		> *:first-child {
+			width: 100%;
+			max-width: 700px;
+			padding: 3rem;
+		}
 	}
 	@media (min-width: 768px) {
 		flex-direction: row;
@@ -10,8 +15,4 @@
 			margin-left: 230px;
 		}
 	}
-}
-oo-projects {
-	max-width: 700px;
-	padding: 3rem;
 }

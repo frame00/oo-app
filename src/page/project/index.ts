@@ -18,8 +18,7 @@ export default (paths: Array<string>): CallbackOptions => {
 		items: [
 			{
 				href: `/${uid}/projects`,
-				label: 'Projects',
-				active: true
+				label: 'Projects'
 			},
 			{
 				href: `/${uid}/settings`,
@@ -28,12 +27,12 @@ export default (paths: Array<string>): CallbackOptions => {
 		]
 	})}
 	<main>
-		<oo-projects data-iam=${uid}></oo-projects>
+		<oo-project data-uid=${uid}></oo-project>
 		${_footer()}
 	</main>
 </div>
 	`
-	const head = _head({title: title('Projects')})
+	const head = _head({title: title('Project')})
 	const html = _html({head, body})
 	return {
 		status: 200,
