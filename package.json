@@ -5,7 +5,7 @@
   "description": "Templates for ooapp.co",
   "main": "index.js",
   "scripts": {
-    "start": "micro server.js",
+    "start": "micro server.js -p 4000",
     "test": "mocha dist/test.js",
     "deploy": "node deploy.js",
     "pretest": "BUILD_MODE=TEST npm run build",
