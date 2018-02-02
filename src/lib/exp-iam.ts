@@ -6,6 +6,9 @@ export default `
 		window.document.querySelectorAll('[data-iam="@IAM@"]').forEach(el => {
 			el.setAttribute('data-iam', uid)
 		})
+		window.document.querySelectorAll('[data-inject-iam]').forEach(el => {
+			el.textContent = el.textContent.replace('@IAM@', uid)
+		})
 	})()
 </script>
 `
