@@ -5,10 +5,10 @@ import _footer from '../../template/footer'
 import _html from '../../template/html'
 import _nav from '../../template/nav'
 import title from '../../lib/title'
+import iam from '../../lib/exp-iam'
 
 export default (paths: Array<string>): CallbackOptions => {
-	const [, uid] = paths
-	if (!uid || paths.length > 2) {
+	if (paths.length > 1) {
 		return notFound()
 	}
 
@@ -17,22 +17,22 @@ export default (paths: Array<string>): CallbackOptions => {
 	${_nav({
 		items: [
 			{
-				href: `/projects/@IAM@`,
+				href: `/projects`,
 				label: 'Projects',
 				active: true
 			},
 			{
-				href: `/settings/@IAM@`,
+				href: `/settings`,
 				label: 'Settings'
 			}
 		]
 	})}
 	<main>
-		<oo-projects data-iam=${uid}></oo-projects>
+		<oo-projects data-iam=@IAM@></oo-projects>
 		${_footer()}
 	</main>
 </div>
-	`
+${iam}`
 	const head = _head({title: title('Projects')})
 	const html = _html({head, body})
 	return {

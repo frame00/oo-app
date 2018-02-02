@@ -93,21 +93,11 @@ oo-nav {
 		style="fill: #ffd600; white-space: pre;"/>
 </svg></a>
 	</div>
-	<a slot=item active href=/projects/@IAM@>Projects</a><a slot=item  href=/settings/@IAM@>Settings</a>
+	<a slot=item active href=/projects>Projects</a><a slot=item  href=/settings>Settings</a>
 </oo-nav>
 
-<script>
-	(() => {
-		const uid = window.localStorage.getItem('oo:uid')
-		if(!uid) return window.location.href = '/sign'
-		window.document.querySelectorAll('a[href*="@IAM@"]').forEach(el => {
-			el.setAttribute('href', el.getAttribute('href').replace('@IAM@', uid))
-		})
-	})()
-</script>
-
 	<main>
-		<oo-projects data-iam=xxx></oo-projects>
+		<oo-projects data-iam=@IAM@></oo-projects>
 
 <oo-footer>
 	<a slot=item href="/first">First</a>
@@ -116,6 +106,16 @@ oo-nav {
 </oo-footer>
 	</main>
 </div>
+
+<script>
+	(() => {
+		const uid = window.localStorage.getItem('oo:uid')
+		if(!uid) return window.location.href = '/sign'
+		window.document.querySelectorAll('[data-iam="@IAM@"]').forEach(el => {
+			el.setAttribute('data-iam', uid)
+		})
+	})()
+</script>
 
 		<script async src="//elements.ooapp.co/stable/oo-elements.js"></script>
 	</body>

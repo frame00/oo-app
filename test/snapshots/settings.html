@@ -93,18 +93,8 @@ oo-nav {
 		style="fill: #ffd600; white-space: pre;"/>
 </svg></a>
 	</div>
-	<a slot=item  href=/projects/@IAM@>Projects</a><a slot=item active href=/settings>Settings</a>
+	<a slot=item  href=/projects>Projects</a><a slot=item active href=/settings>Settings</a>
 </oo-nav>
-
-<script>
-	(() => {
-		const uid = window.localStorage.getItem('oo:uid')
-		if(!uid) return window.location.href = '/sign'
-		window.document.querySelectorAll('a[href*="@IAM@"]').forEach(el => {
-			el.setAttribute('href', el.getAttribute('href').replace('@IAM@', uid))
-		})
-	})()
-</script>
 
 	<main>
 		<oo-profile-editor></oo-profile-editor>

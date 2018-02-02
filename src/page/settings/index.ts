@@ -16,7 +16,7 @@ export default (paths: Array<string>): CallbackOptions => {
 	${_nav({
 		items: [
 			{
-				href: `/projects/@IAM@`,
+				href: `/projects`,
 				label: 'Projects'
 			},
 			{
