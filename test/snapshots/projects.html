@@ -11,6 +11,7 @@
 	<link href="//fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
 	<style>body {
 	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 main {
 	display: -webkit-box;
@@ -113,6 +114,9 @@ oo-nav {
 		if(!uid) return window.location.href = '/sign'
 		window.document.querySelectorAll('[data-iam="@IAM@"]').forEach(el => {
 			el.setAttribute('data-iam', uid)
+		})
+		window.document.querySelectorAll('[data-inject-iam]').forEach(el => {
+			el.textContent = el.textContent.replace('@IAM@', uid)
 		})
 	})()
 </script>
