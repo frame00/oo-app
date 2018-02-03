@@ -1,9 +1,16 @@
+h2 {
+	margin-top: 0;
+}
 article {
 	width: 100%;
-	max-width: 700px;
-    padding: 3rem;
+	padding: 3rem;
+	section {
+		max-width: 700px;
+		margin: auto;
+	}
 	.code {
-		background: whitesmoke;
+		background: #1565C0;
+		color: white;
 		margin: 1rem 0;
 		padding: 1.5rem;
 		border-radius: 10px;
@@ -11,6 +18,18 @@ article {
 		line-height: 1.2rem;
 		span {
 			display: block;
+		}
+	}
+	&.info {
+		background: #03A9F4;
+	}
+	&.danger {
+		background: #FF5722;
+		h2 {
+			color: white;
+		}
+		p {
+			color: #FFCCBC;
 		}
 	}
 }

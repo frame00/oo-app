@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Double O - Projects</title>
+	<title>Double O - Settings</title>
 	<link rel="preload" as="script" href="//elements.ooapp.co/stable/oo-elements.js">
 	<link rel="preload" as="style" href="//fonts.googleapis.com/css?family=Roboto:100,400">
 	<link href="//fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
@@ -73,6 +73,46 @@ oo-nav {
 </head>
 	<body>
 
+<style>h2 {
+	margin-top: 0;
+}
+article {
+	width: 100%;
+	padding: 48px;
+	padding: 3rem;
+}
+article section {
+		max-width: 700px;
+		margin: auto;
+	}
+article .code {
+		background: #1565C0;
+		color: white;
+		margin: 16px 0;
+		margin: 1rem 0;
+		padding: 24px;
+		padding: 1.5rem;
+		border-radius: 10px;
+		font-family: monospace;
+		line-height: 19.2px;
+		line-height: 1.2rem;
+	}
+article .code span {
+			display: block;
+		}
+article.info {
+	background: #03A9F4;
+}
+article.danger {
+	background: #FF5722;
+}
+article.danger h2 {
+			color: white;
+}
+article.danger p {
+			color: #FFCCBC;
+}
+</style>
 <div class=container>
 
 <style>
@@ -98,7 +138,7 @@ oo-nav {
 		style="fill: #ffd600; white-space: pre;"/>
 </svg></a>
 	</div>
-	<a slot=item active href=/projects>Projects</a><a slot=item  href=/settings>Settings</a>
+	<a slot=item  href=/projects>Projects</a><a slot=item active href=/settings>Settings</a>
 	<div slot=footer>
 		<oo-sign-out></oo-sign-out>
 	</div>
@@ -114,7 +154,34 @@ oo-nav {
 
 
 	<main>
-		<oo-projects data-iam=@IAM@></oo-projects>
+		<oo-profile-editor></oo-profile-editor>
+		<article class=info>
+			<section>
+				<h2>Add Double O Button to your site.</h2>
+				<p>Medium</p>
+				<oo-button data-iam=@IAM@></oo-button>
+				<div class=code>
+					<span>&lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;</span>
+					<span data-inject-iam>&lt;oo-button data-iam=&quot;@IAM@&quot;&gt;&lt;&#x2F;oo-button&gt;</span>
+				</div>
+
+				<p>Small</p>
+				<oo-button data-size=small data-iam=@IAM@></oo-button>
+				<div class=code>
+					<span>&lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;</span>
+					<span data-inject-iam>&lt;oo-button data-size=&quot;small&quot; data-iam=&quot;@IAM@&quot;&gt;&lt;&#x2F;oo-button&gt;</span>
+				</div>
+			</section>
+		</article>
+		<article class=danger>
+			<section>
+				<h2>Delete account</h2>
+				<p>Once you delete an account, you can not use the same account again.</p>
+				<p>Please check if there are any ongoing projects.</p>
+				<p>Would you like to delete your account?</p>
+				<oo-delete-account></oo-delete-account>
+			</section>
+		</article>
 
 <oo-footer>
 	<a slot=item href="/first">First</a>
