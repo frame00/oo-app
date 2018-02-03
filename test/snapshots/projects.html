@@ -77,12 +77,16 @@ oo-nav {
 
 <style>
 	oo-nav [slot=brand] {
-		padding: 48px;
-		padding: 3rem;
-	}
-		oo-nav [slot=brand] a {
-			display: block;
-			max-width: 150px;
+			padding: 48px;
+			padding: 3rem;
+		}
+			oo-nav [slot=brand] a {
+				display: block;
+				max-width: 150px;
+			}
+		oo-nav [slot=footer] {
+			padding: 48px;
+			padding: 3rem;
 		}
 </style>
 <oo-nav>
@@ -95,7 +99,19 @@ oo-nav {
 </svg></a>
 	</div>
 	<a slot=item active href=/projects>Projects</a><a slot=item  href=/settings>Settings</a>
+	<div slot=footer>
+		<oo-sign-out></oo-sign-out>
+	</div>
 </oo-nav>
+
+<script>
+	(() => {
+		window.document.querySelector('oo-sign-out').addEventListener('signedout', () => {
+			window.location.href = '/sign'
+		})
+	})()
+</script>
+
 
 	<main>
 		<oo-projects data-iam=@IAM@></oo-projects>

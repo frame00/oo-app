@@ -1,4 +1,5 @@
 import logo from './logo'
+import onSignedOut from '../lib/on-signed-out'
 
 interface Options {
 	items: Array<{
@@ -17,11 +18,16 @@ export default (opts: Options): string => {
 
 	return `
 <style>
-	oo-nav [slot=brand] {
-		padding: 3rem;
-		a {
-			display: block;
-			max-width: 150px;
+	oo-nav {
+		[slot=brand] {
+			padding: 3rem;
+			a {
+				display: block;
+				max-width: 150px;
+			}
+		}
+		[slot=footer] {
+			padding: 3rem;
 		}
 	}
 </style>
@@ -30,6 +36,10 @@ export default (opts: Options): string => {
 		<a href=/dashboard>${logo('#ffd600')}</a>
 	</div>
 	${link}
+	<div slot=footer>
+		<oo-sign-out></oo-sign-out>
+	</div>
 </oo-nav>
+${onSignedOut}
 `
 }
