@@ -1,5 +1,6 @@
 import logo from './logo'
 import onSignedOut from '../lib/on-signed-out'
+import version from './version'
 
 interface Options {
 	items: Array<{
@@ -34,6 +35,7 @@ export default (opts: Options): string => {
 <oo-nav>
 	<div slot=brand>
 		<a href=/dashboard>${logo('#ffd600')}</a>
+		${version()}
 	</div>
 	${link}
 	<div slot=footer>

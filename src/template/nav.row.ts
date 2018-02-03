@@ -1,4 +1,5 @@
 import logo from './logo'
+import version from './version'
 
 export default (): string => {
 	return `
@@ -14,6 +15,7 @@ export default (): string => {
 </style>
 <nav>
 	<a href=/dashboard>${logo('#ffd600')}</a>
+	${version()}
 </nav>
 `
 }
