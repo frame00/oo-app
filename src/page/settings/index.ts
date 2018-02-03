@@ -53,11 +53,18 @@ export default (paths: Array<string>): CallbackOptions => {
 		</article>
 		<article class=danger>
 			<section>
-				<h2>Delete account</h2>
-				<p>Once you delete an account, you can not use the same account again.</p>
-				<p>Please check if there are any ongoing projects.</p>
-				<p>Would you like to delete your account?</p>
-				<oo-delete-account></oo-delete-account>
+				<a href=# onclick="document.getElementById('delete').setAttribute('data-open', 'enabled'); return false;">Delete account</a>
+				<oo-modal id=delete>
+					<div slot=header>
+						<h2>Are you sure you want to delete account?</h2>
+					</div>
+					<div slot=body>
+						<p>Once you delete an account, you can not use the same account again.</p>
+						<p>Please check if there are any ongoing projects.</p>
+						<p>Would you like to delete your account?</p>
+						<oo-delete-account></oo-delete-account>
+					</div>
+				<oo-modal>
 			</section>
 		</article>
 		${_footer()}

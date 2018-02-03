@@ -25,11 +25,24 @@ article {
 	}
 	&.danger {
 		background: #FF5722;
-		h2 {
+		a {
 			color: white;
 		}
-		p {
-			color: #FFCCBC;
+	}
+}
+oo-modal {
+	[slot] {
+		background: #FF5722;
+		padding: 2rem;
+	}
+	[slot=header] {
+		color: white;
+		background: #E64A19;
+		h2 {
+			margin: auto;
 		}
+	}
+	[slot=body] {
+		color: #FFCCBC;
 	}
 }
