@@ -9,7 +9,8 @@ export const handler = async (event: APIGatewayEvent, _, callback: ProxyCallback
 		statusCode,
 		body,
 		headers: {
-			'content-type': 'text/html; charset=utf-8'
+			'content-type': 'text/html; charset=utf-8',
+			'cache-control': 'max-age=86400'
 		}
 	})
 }
