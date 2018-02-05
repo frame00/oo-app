@@ -11,8 +11,84 @@
 	<link href="//fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
 	<style>body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
+
+body:not(.loaded) {
+	position: relative;
+	overflow: hidden;
+}
+
+body:not(.loaded) * {
+			display: none;
+}
+
+body:not(.loaded)::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background-color: whitesmoke;
+}
+
+body:not(.loaded)::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0px;
+	height: 5px;
+	background-color: #ffd600;
+	-webkit-animation-name: progress;
+	        animation-name: progress;
+	-webkit-animation-duration: 2s;
+	        animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	        animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes progress {
+	0% {
+		width: 0%;
+	}
+	25% {
+		width: 100%;
+	}
+	50% {
+		width: 100%;
+		-webkit-transform: translateX(100%);
+		        transform: translateX(100%);
+	}
+	100% {
+		width: 0%;
+		-webkit-transform: translateX(100%);
+		        transform: translateX(100%);
+	}
+}
+
+@keyframes progress {
+	0% {
+		width: 0%;
+	}
+	25% {
+		width: 100%;
+	}
+	50% {
+		width: 100%;
+		-webkit-transform: translateX(100%);
+		        transform: translateX(100%);
+	}
+	100% {
+		width: 0%;
+		-webkit-transform: translateX(100%);
+		        transform: translateX(100%);
+	}
+}
+
 main {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -26,11 +102,13 @@ main {
 	        box-sizing: border-box;
 	min-height: 100vh;
 }
+
 oo-footer {
 	-ms-flex-item-align: end;
 	    align-self: flex-end;
 	width: 100%;
 }
+
 .container {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -40,11 +118,13 @@ oo-footer {
 	    -ms-flex-direction: column;
 	        flex-direction: column;
 }
+
 .container main {
 		-webkit-box-flex: 1;
 		    -ms-flex-positive: 1;
 		        flex-grow: 1;
 	}
+
 .container main > *:first-child {
 			width: 100%;
 			max-width: 700px;
@@ -53,17 +133,21 @@ oo-footer {
 			-ms-flex-item-align: end;
 			    align-self: flex-end;
 		}
+
 @media (min-width: 768px) {
+
 	.container {
 		-webkit-box-orient: horizontal;
 		-webkit-box-direction: normal;
 		    -ms-flex-direction: row;
 		        flex-direction: row;
 	}
+
 	.container main {
 			margin-left: 230px;
 	}
 }
+
 oo-nav {
 	position: fixed;
 	top: 0;
@@ -98,5 +182,14 @@ span:first-child {
 </main>
 
 		<script async src="//elements.ooapp.co/stable/oo-elements.js"></script>
+
+<script>
+	(() => {
+		window.onload = () => {
+			window.document.body.classList.add('loaded')
+		}
+	})()
+</script>
+
 	</body>
 </html>

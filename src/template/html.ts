@@ -1,4 +1,5 @@
 import ooElements from './oo-elements'
+import progress from '../lib/progress'
 
 interface Options {
 	head: string,
@@ -14,6 +15,7 @@ export default (opts: Options): string => {
 	<body>
 		${body}
 		${ooElements()}
+		${progress}
 	</body>
 </html>`
 }
