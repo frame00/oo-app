@@ -75,7 +75,7 @@ oo-nav {
 </head>
 	<body>
 
-<style>h2 {
+<style>h2:first-of-type {
 	margin-top: 0;
 }
 article {
@@ -87,7 +87,9 @@ article section {
 		max-width: 700px;
 		margin: auto;
 	}
-article .code {
+article .code,
+	article .oo-link {
+		display: block;
 		background: #1565C0;
 		color: white;
 		margin: 16px 0;
@@ -99,9 +101,12 @@ article .code {
 		line-height: 19.2px;
 		line-height: 1.2rem;
 	}
-article .code span {
+article .code span, article .oo-link span {
 			display: block;
 		}
+article a {
+		color: white;
+	}
 article.info {
 	background: #03A9F4;
 }
@@ -195,6 +200,9 @@ oo-modal [slot=body] {
 					<span>&lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;</span>
 					<span data-inject-iam>&lt;oo-button data-size=&quot;small&quot; data-iam=&quot;@IAM@&quot;&gt;&lt;&#x2F;oo-button&gt;</span>
 				</div>
+				<h2>Add Double O link to your site.</h2>
+				<p><a data-inject-iam href=https://ooapp.co/@IAM@ class=oo-link>https://ooapp.co/@IAM@</a></p>
+				<p>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
 			</section>
 		</article>
 		<article class=danger>
@@ -228,6 +236,9 @@ oo-modal [slot=body] {
 		if(!uid) return window.location.href = '/sign'
 		window.document.querySelectorAll('[data-iam="@IAM@"]').forEach(el => {
 			el.setAttribute('data-iam', uid)
+		})
+		window.document.querySelectorAll('[href*="@IAM@"]').forEach(el => {
+			el.setAttribute('href', el.getAttribute('href').replace('@IAM@', uid))
 		})
 		window.document.querySelectorAll('[data-inject-iam]').forEach(el => {
 			el.textContent = el.textContent.replace('@IAM@', uid)

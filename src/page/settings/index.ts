@@ -49,6 +49,9 @@ export default (paths: Array<string>): CallbackOptions => {
 					<span>${escape('<script async src="//elements.ooapp.co/stable/oo-button.js"></script>')}</span>
 					<span data-inject-iam>${escape('<oo-button data-size="small" data-iam="@IAM@"></oo-button>')}</span>
 				</div>
+				<h2>Add Double O link to your site.</h2>
+				<p><a data-inject-iam href=https://ooapp.co/@IAM@ class=oo-link>https://ooapp.co/@IAM@</a></p>
+				<p>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
 			</section>
 		</article>
 		<article class=danger>
