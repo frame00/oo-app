@@ -1,4 +1,5 @@
 import {js, css} from '../lib/sources'
+import ga from '../lib/ga'
 
 interface Options {
 	title: string
@@ -17,5 +18,6 @@ export default (opts: Options): string => {
 	<style>
 		@import '../style/style.css';
 	</style>
+	${ga()}
 </head>`
 }
