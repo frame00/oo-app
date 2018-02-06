@@ -8,6 +8,7 @@ import _nav from '../../template/nav.row'
 import _title from '../../lib/title'
 import terms from './text/terms.ja.md'
 import privacy from './text/privacy.ja.md'
+import law from './text/law.ja.md'
 
 const markdown = md({
 	html: true
@@ -29,6 +30,10 @@ export default (paths: Array<string>): CallbackOptions => {
 		case 'privacy':
 			title = 'プライバシーポリシー'
 			contents = privacy
+			break
+		case 'law':
+			title = '特定商取引法に基づく表記'
+			contents = law
 			break
 		default:
 			return notFound()

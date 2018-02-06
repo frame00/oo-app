@@ -23,6 +23,15 @@ describe('GET:/articles', () => {
 		})
 	})
 
+	describe('GET:/articles/law', () => {
+		it('Returns law page', () => {
+			const html = page(['articles', 'law'])
+			const snapshot = readFileSync(relPath('../../../test/snapshots/articles/law.html'), 'utf-8')
+			assert.equal(compress(html.body), compress(snapshot))
+			assert.equal(html.status, 200)
+		})
+	})
+
 	describe('When it is an unexpected path, returns 404', () => {
 		it('When name not found', () => {
 			const html = page(['articles'])
