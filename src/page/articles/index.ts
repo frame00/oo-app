@@ -5,7 +5,7 @@ import _head from '../../template/head'
 import _footer from '../../template/footer'
 import _html from '../../template/html'
 import _nav from '../../template/nav.row'
-import title from '../../lib/title'
+import _title from '../../lib/title'
 import terms from './text/terms.ja.md'
 
 const markdown = md({
@@ -13,9 +13,18 @@ const markdown = md({
 })
 
 export default (paths: Array<string>): CallbackOptions => {
-	const [uid] = paths
-	if (!uid || paths.length > 1) {
+	const [, name] = paths
+	if (paths.length > 2) {
 		return notFound()
+	}
+
+	let title
+	switch (name) {
+		case 'terms':
+			title = '利用規約'
+			break
+		default:
+			return notFound()
 	}
 
 	const body = `
@@ -27,7 +36,7 @@ export default (paths: Array<string>): CallbackOptions => {
 		${markdown.render(terms)}
 	</article>
 	${_footer()}`
-	const head = _head({title: title('利用規約')})
+	const head = _head({title: _title(title)})
 	const html = _html({head, body})
 	return {
 		status: 200,
