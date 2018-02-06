@@ -3,6 +3,8 @@ import commonjs from 'rollup-plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import postcss from 'rollup-plugin-transform-postcss'
 import multiEntry from 'rollup-plugin-multi-entry'
+import json from 'rollup-plugin-json'
+import md from 'rollup-plugin-md'
 import importcss from 'postcss-import'
 import cssnext from 'postcss-cssnext'
 import precss from 'precss'
@@ -22,7 +24,9 @@ let plugins = [
 	}),
 	postcss({
 		plugins: [importcss, precss, cssnext]
-	})
+	}),
+	json(),
+	md()
 ]
 
 switch(BUILD_MODE) {

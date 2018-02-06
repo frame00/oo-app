@@ -5,6 +5,7 @@ import dashboard from './page/dashboard'
 import projects from './page/projects'
 import project from './page/project'
 import settings from './page/settings'
+import terms from './page/terms'
 
 export default (paths: Array<string>): CallbackOptions => {
 	const [resource] = paths
@@ -20,6 +21,8 @@ export default (paths: Array<string>): CallbackOptions => {
 			return project(paths)
 		case 'settings':
 			return settings(paths)
+		case 'terms':
+			return terms(paths)
 		default:
 			return user(paths)
 	}
