@@ -14,6 +14,15 @@ describe('GET:/articles', () => {
 		})
 	})
 
+	describe('GET:/articles/privacy', () => {
+		it('Returns privacy page', () => {
+			const html = page(['articles', 'privacy'])
+			const snapshot = readFileSync(relPath('../../../test/snapshots/articles/privacy.html'), 'utf-8')
+			assert.equal(compress(html.body), compress(snapshot))
+			assert.equal(html.status, 200)
+		})
+	})
+
 	describe('When it is an unexpected path, returns 404', () => {
 		it('When name not found', () => {
 			const html = page(['articles'])
