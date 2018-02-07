@@ -7,22 +7,37 @@ import _nav from '../../template/nav.row'
 import title from '../../lib/title'
 
 export default (paths: Array<string>): CallbackOptions => {
-	const [uid] = paths
-	if (!uid || paths.length > 1) {
+	const [uid, sub] = paths
+	if (!uid || paths.length > 2) {
 		return notFound()
+	}
+	if (typeof sub === 'string' && sub !== 'projects') {
+		return notFound()
+	}
+
+	const contents = resource => {
+		if (resource) {
+			return `
+			<main>
+				<oo-projects data-iam=${uid}></oo-projects>
+				${_footer()}
+			</main>`
+		}
+		return `
+		<main>
+			<oo-ask data-iam=${uid}></oo-ask>
+			${_footer()}
+		</main>`
 	}
 
 	const body = `
 <style>
 	@import './style.scss';
 </style>
+${contents(sub)}
 ${_nav()}
-<main>
-	<oo-ask data-iam=${uid}></oo-ask>
-	${_footer()}
-</main>
 	`
-	const head = _head({title: title('Offer')})
+	const head = _head({title: title(sub ? 'Projects' : 'Ask')})
 	const html = _html({head, body})
 	return {
 		status: 200,
