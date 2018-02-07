@@ -18,7 +18,7 @@ export default (paths: Array<string>): CallbackOptions => {
 </style>
 ${_nav()}
 <main>
-	<oo-offer data-iam=${uid}></oo-offer>
+	<oo-ask data-iam=${uid}></oo-ask>
 	${_footer()}
 </main>
 	`
