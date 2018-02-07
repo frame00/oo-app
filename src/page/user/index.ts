@@ -34,8 +34,8 @@ export default (paths: Array<string>): CallbackOptions => {
 <style>
 	@import './style.scss';
 </style>
-${contents(sub)}
 ${_nav()}
+${contents(sub)}
 	`
 	const head = _head({title: title(sub ? 'Projects' : 'Ask')})
 	const html = _html({head, body})
