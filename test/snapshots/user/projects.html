@@ -173,7 +173,7 @@ oo-nav {
 	-ms-flex-item-align: end;
 	    align-self: flex-end;
 }
-oo-projects {
+article {
 	width: 100%;
 	max-width: 700px;
 	padding: 48px;
@@ -181,6 +181,10 @@ oo-projects {
 	-ms-flex-item-align: end;
 	    align-self: flex-end;
 }
+article oo-profile {
+		margin-bottom: 48px;
+		margin-bottom: 3rem;
+	}
 </style>
 
 <style>
@@ -215,7 +219,10 @@ oo-projects {
 
 
 			<main>
-				<oo-projects data-iam=xxx></oo-projects>
+				<article>
+					<oo-profile data-iam=xxx></oo-profile>
+					<oo-projects data-iam=xxx></oo-projects>
+				</article>
 
 <oo-footer>
 	<a slot=item href="http://corp.frame00.com/">FRAME00, INC.</a>

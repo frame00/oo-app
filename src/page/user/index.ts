@@ -19,7 +19,10 @@ export default (paths: Array<string>): CallbackOptions => {
 		if (resource) {
 			return `
 			<main>
-				<oo-projects data-iam=${uid}></oo-projects>
+				<article>
+					<oo-profile data-iam=${uid}></oo-profile>
+					<oo-projects data-iam=${uid}></oo-projects>
+				</article>
 				${_footer()}
 			</main>`
 		}
