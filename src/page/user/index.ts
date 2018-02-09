@@ -7,30 +7,9 @@ import _nav from '../../template/nav.row'
 import title from '../../lib/title'
 
 export default (paths: Array<string>): CallbackOptions => {
-	const [uid, sub] = paths
-	if (!uid || paths.length > 2) {
+	const [uid] = paths
+	if (!uid || paths.length > 1) {
 		return notFound()
-	}
-	if (typeof sub === 'string' && sub !== 'projects') {
-		return notFound()
-	}
-
-	const contents = resource => {
-		if (resource) {
-			return `
-			<main>
-				<article>
-					<oo-profile data-iam=${uid}></oo-profile>
-					<oo-projects data-iam=${uid}></oo-projects>
-				</article>
-				${_footer()}
-			</main>`
-		}
-		return `
-		<main>
-			<oo-ask data-iam=${uid} data-sign-in-flow=redirect></oo-ask>
-			${_footer()}
-		</main>`
 	}
 
 	const body = `
@@ -38,9 +17,15 @@ export default (paths: Array<string>): CallbackOptions => {
 	@import './style.scss';
 </style>
 ${_nav()}
-${contents(sub)}
+<main>
+	<oo-ask data-iam=${uid} data-sign-in-flow=redirect></oo-ask>
+	<article>
+		<oo-projects data-iam=${uid}></oo-projects>
+	</article>
+	${_footer()}
+</main>
 	`
-	const head = _head({title: title(sub ? 'Projects' : 'Ask')})
+	const head = _head({title: title('Ask')})
 	const html = _html({head, body})
 	return {
 		status: 200,
