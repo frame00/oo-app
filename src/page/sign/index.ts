@@ -19,9 +19,9 @@ export default (paths: Array<string>): CallbackOptions => {
 <main ${resource}>
 	<div class=signins>
 		<div class=buttons>
-			<oo-sign-in data-provider=google></oo-sign-in>
-			<oo-sign-in data-provider=facebook></oo-sign-in>
-			<oo-sign-in data-provider=github></oo-sign-in>
+			<oo-sign-in-with-redirect data-provider=google></oo-sign-in-with-redirect>
+			<oo-sign-in-with-redirect data-provider=facebook></oo-sign-in-with-redirect>
+			<oo-sign-in-with-redirect data-provider=github></oo-sign-in-with-redirect>
 		</div>
 	</div>
 	${_footer()}

@@ -28,7 +28,7 @@ export default (paths: Array<string>): CallbackOptions => {
 		}
 		return `
 		<main>
-			<oo-ask data-iam=${uid}></oo-ask>
+			<oo-ask data-iam=${uid} data-sign-in-flow=redirect></oo-ask>
 			${_footer()}
 		</main>`
 	}
