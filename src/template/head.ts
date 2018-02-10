@@ -14,6 +14,8 @@ const ogp = (og: OG): string => {
 	let res = ''
 	if (og.image) {
 		res += `<meta property=og:image content=${og.image} />`
+		res += `<meta property=og:image:width content=1200 />`
+		res += `<meta property=og:image:height content=630 />`
 	}
 	return res
 }
