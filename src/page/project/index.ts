@@ -32,9 +32,14 @@ export default (paths: Array<string>): CallbackOptions => {
 	</main>
 </div>
 	`
-	const head = _head({title: title('Project'), og: {
-		image: `https://d3gldg34q5n15h.cloudfront.net/project/${uid}`
-	}})
+	const head = _head({
+		title: title('Project'),
+		description: title('Project'),
+		paths,
+		og: {
+			image: `https://d3gldg34q5n15h.cloudfront.net/project/${uid}`
+		}
+	})
 	const html = _html({head, body})
 	return {
 		status: 200,
