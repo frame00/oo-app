@@ -37,7 +37,7 @@ export default (paths: Array<string>): CallbackOptions => {
 		description: title('Project'),
 		paths,
 		og: {
-			image: `https://d3gldg34q5n15h.cloudfront.net/project/${uid}`
+			image: `https://og.images.ooapp.co/project/${uid}`
 		}
 	})
 	const html = _html({head, body})
