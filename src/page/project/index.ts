@@ -5,8 +5,9 @@ import _footer from '../../template/footer'
 import _html from '../../template/html'
 import _nav from '../../template/nav'
 import title from '../../lib/title'
+import messagesCount from '../../lib/fetch-api-projects-messages-count'
 
-export default (paths: Array<string>): CallbackOptions => {
+export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [, uid] = paths
 	if (!uid || paths.length > 2) {
 		return notFound()
@@ -32,12 +33,14 @@ export default (paths: Array<string>): CallbackOptions => {
 	</main>
 </div>
 	`
+	const count = await messagesCount(uid)
+
 	const head = _head({
 		title: title('Project'),
 		description: title('Project'),
 		paths,
 		og: {
-			image: `https://og.images.ooapp.co/project/${uid}`
+			image: `https://og.images.ooapp.co/project/${uid}?${count}`
 		}
 	})
 	const html = _html({head, body})

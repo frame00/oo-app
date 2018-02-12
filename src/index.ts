@@ -7,7 +7,7 @@ import project from './page/project'
 import settings from './page/settings'
 import articles from './page/articles'
 
-export default (paths: Array<string>): CallbackOptions => {
+export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [resource] = paths
 
 	switch (resource) {
