@@ -1,6 +1,9 @@
 article {
-	max-width: 700px;
-	margin: auto;
+	width: 100%;
+	section {
+		max-width: 700px;
+		margin: auto;
+	}
 	h1,h2,h3 {
 		font-weight: 400;
 	}

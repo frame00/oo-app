@@ -10,45 +10,41 @@
 	<link rel="preload" as="script" href="//elements.ooapp.co/stable/oo-elements.js">
 	<style>body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
-body:not(.loaded) {
-	position: relative;
-	overflow: hidden;
-}
-
-body:not(.loaded) * {
+	body:not(.loaded) {
+		position: relative;
+		overflow: hidden;
+	}
+	body:not(.loaded) * {
 			display: none;
-}
-
-body:not(.loaded)::before {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 5px;
-	background-color: whitesmoke;
-}
-
-body:not(.loaded)::after {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 0px;
-	height: 5px;
-	background-color: #ffd600;
-	-webkit-animation-name: progress;
-	        animation-name: progress;
-	-webkit-animation-duration: 2s;
-	        animation-duration: 2s;
-	-webkit-animation-iteration-count: infinite;
-	        animation-iteration-count: infinite;
-}
+		}
+	body:not(.loaded)::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 5px;
+			background-color: whitesmoke;
+		}
+	body:not(.loaded)::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0px;
+			height: 5px;
+			background-color: #ffd600;
+			-webkit-animation-name: progress;
+			        animation-name: progress;
+			-webkit-animation-duration: 2s;
+			        animation-duration: 2s;
+			-webkit-animation-iteration-count: infinite;
+			        animation-iteration-count: infinite;
+		}
 
 @-webkit-keyframes progress {
 	0% {
@@ -135,17 +131,16 @@ oo-footer {
 
 @media (min-width: 768px) {
 
-	.container {
+.container {
 		-webkit-box-orient: horizontal;
 		-webkit-box-direction: normal;
 		    -ms-flex-direction: row;
-		        flex-direction: row;
-	}
-
-	.container main {
-			margin-left: 230px;
-	}
+		        flex-direction: row
 }
+		.container main {
+			margin-left: 230px;
+		}
+	}
 
 oo-nav {
 	position: fixed;
@@ -168,19 +163,32 @@ oo-nav {
 </head>
 	<body>
 
-<style>h2:first-of-type {
-	margin-top: 0;
-}
-article {
+<style>article {
 	width: 100%;
-	padding: 48px;
-	padding: 3rem;
 }
-article section {
+	article section {
 		max-width: 700px;
 		margin: auto;
 	}
-article .code,
+	article h1,article h2,article h3 {
+		font-weight: 400;
+	}
+	article h1 {
+		font-size: 24px;
+		font-size: 1.5rem;
+	}
+	article h2 {
+		font-size: 19.2px;
+		font-size: 1.2rem;
+	}
+	article p {
+		font-size: 16px;
+		font-size: 1rem;
+	}
+	article h2 {
+		font-weight: 600;
+	}
+	article .code,
 	article .oo-link {
 		display: block;
 		background: #1565C0;
@@ -194,35 +202,39 @@ article .code,
 		line-height: 19.2px;
 		line-height: 1.2rem;
 	}
-article .code span, article .oo-link span {
+	article .code span, article .oo-link span {
 			display: block;
 		}
-article a {
+	article a {
 		color: white;
 	}
-article.info {
-	background: #03A9F4;
-}
-article.danger {
-	background: #FF5722;
-}
-article.danger a {
+	article.info {
+		background: #03A9F4;
+	}
+	article.danger {
+		background: #FF5722;
+	}
+	article.danger a {
 			color: white;
-}
-oo-modal [slot] {
+		}
+	oo-modal [slot] {
 		background: #FF5722;
 		padding: 32px;
 		padding: 2rem;
 	}
-oo-modal [slot=header] {
+	oo-modal [slot=header] {
 		color: white;
 		background: #E64A19;
 	}
-oo-modal [slot=header] h2 {
+	oo-modal [slot=header] h2 {
 			margin: auto;
 		}
-oo-modal [slot=body] {
+	oo-modal [slot=body] {
 		color: #FFCCBC;
+	}
+	article {
+		padding: 48px;
+		padding: 3rem;
 	}
 </style>
 <div class=container>

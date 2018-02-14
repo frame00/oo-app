@@ -10,45 +10,41 @@
 	<link rel="preload" as="script" href="//elements.ooapp.co/stable/oo-elements.js">
 	<style>body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
-body:not(.loaded) {
-	position: relative;
-	overflow: hidden;
-}
-
-body:not(.loaded) * {
+	body:not(.loaded) {
+		position: relative;
+		overflow: hidden;
+	}
+	body:not(.loaded) * {
 			display: none;
-}
-
-body:not(.loaded)::before {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 5px;
-	background-color: whitesmoke;
-}
-
-body:not(.loaded)::after {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 0px;
-	height: 5px;
-	background-color: #ffd600;
-	-webkit-animation-name: progress;
-	        animation-name: progress;
-	-webkit-animation-duration: 2s;
-	        animation-duration: 2s;
-	-webkit-animation-iteration-count: infinite;
-	        animation-iteration-count: infinite;
-}
+		}
+	body:not(.loaded)::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 5px;
+			background-color: whitesmoke;
+		}
+	body:not(.loaded)::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0px;
+			height: 5px;
+			background-color: #ffd600;
+			-webkit-animation-name: progress;
+			        animation-name: progress;
+			-webkit-animation-duration: 2s;
+			        animation-duration: 2s;
+			-webkit-animation-iteration-count: infinite;
+			        animation-iteration-count: infinite;
+		}
 
 @-webkit-keyframes progress {
 	0% {
@@ -135,17 +131,16 @@ oo-footer {
 
 @media (min-width: 768px) {
 
-	.container {
+.container {
 		-webkit-box-orient: horizontal;
 		-webkit-box-direction: normal;
 		    -ms-flex-direction: row;
-		        flex-direction: row;
-	}
-
-	.container main {
-			margin-left: 230px;
-	}
+		        flex-direction: row
 }
+		.container main {
+			margin-left: 230px;
+		}
+	}
 
 oo-nav {
 	position: fixed;
@@ -169,9 +164,12 @@ oo-nav {
 	<body>
 
 	<style>article {
-	max-width: 700px;
-	margin: auto;
+	width: 100%;
 }
+	article section {
+		max-width: 700px;
+		margin: auto;
+	}
 	article h1,article h2,article h3 {
 		font-weight: 400;
 	}
@@ -220,7 +218,8 @@ oo-nav {
 </nav>
 
 	<article>
-		<h1 id="frame00-doubleo-">FRAME00株式会社　DoubleO 利用規約</h1>
+		<section>
+			<h1 id="frame00-doubleo-">FRAME00株式会社　DoubleO 利用規約</h1>
 <p>FRAME00株式会社（以下、当社といいます）の提供する、DoubleO（以下、「本サービス」といいます）を利用されるお客様（以下、「お客様」といいます）は、本ご利用規約（以下、「本規約」といいます）に基づいて本サービスをご利用ください。 本サービスをご利用になった場合、本規約の内容に同意したものとみなします。 本規約は、当社により予告無く変更されることがあります。お客様は、ご利用の際は、最新の本規約をご確認ください。</p>
 <h2 id="-1-">第1条　（適用）</h2>
 <p>本規約は、本サービスの利用に関する当社と利用者との間の権利義務関係を定めることを目的とし、利用者と当社の間の本サービスの利用に関わる一切の関係に適用されます。</p>
@@ -337,6 +336,7 @@ oo-nav {
 <p>2018年 2月 制定</p>
 <p>FRAME00株式会社</p>
 
+		</section>
 	</article>
 
 <oo-footer>

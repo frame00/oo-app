@@ -5,9 +5,10 @@ import postcss from 'rollup-plugin-transform-postcss'
 import multiEntry from 'rollup-plugin-multi-entry'
 import json from 'rollup-plugin-json'
 import md from 'rollup-plugin-md'
-import importcss from 'postcss-import'
+import cssimport from 'postcss-import'
 import cssnext from 'postcss-cssnext'
-import precss from 'precss'
+import cssnested from 'postcss-nested'
+import mixins from 'postcss-mixins'
 
 const {BUILD_MODE} = process.env
 
@@ -23,7 +24,7 @@ let plugins = [
 		preferBuiltins: false
 	}),
 	postcss({
-		plugins: [importcss, precss, cssnext]
+		plugins: [cssimport, cssnested, mixins, cssnext]
 	}),
 	json(),
 	md()

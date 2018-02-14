@@ -3,7 +3,9 @@ import notFound from '../404'
 import _head from '../../template/head'
 import _footer from '../../template/footer'
 import _html from '../../template/html'
+import _nav from '../../template/nav'
 import title from '../../lib/title'
+import iam from '../../lib/exp-iam'
 
 export default (paths: Array<string>): CallbackOptions => {
 	if (paths.length > 1) {
@@ -13,15 +15,50 @@ export default (paths: Array<string>): CallbackOptions => {
 	const body = `
 <style>
 	@import './style.scss';
+	.trello {
+		font-size: 0.8rem;
+		a {
+			color: inherit;
+		}
+	}
+	.oo-btn-link {
+		display: inline-block;
+		padding: 1rem;
+		background: whitesmoke;
+		border-radius: 10px;
+		color: inherit;
+	}
 </style>
-<main>
-	<div class=links>
-		<a href=/projects class=projects slot=item>Projects</a>
-		<a href=/settings class=settings slot=item>Settings</a>
-	</div>
-	${_footer()}
-</main>
-`
+<div class=container>
+	${_nav({
+		items: [
+			{
+				href: `/projects`,
+				label: 'Projects'
+			},
+			{
+				href: `/settings`,
+				label: 'Settings'
+			}
+		]
+	})}
+	<main>
+		<article>
+			<section>
+				<h1>Next step</h1>
+
+				<h2>1. Share your "Ask Me" link</h2>
+				<p><a data-inject-iam href=https://ooapp.co/@IAM@ class=oo-link>https://ooapp.co/@IAM@</a></p>
+				<p class=trello>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
+
+				<h2>2. Complete your profile, and enable to E-Mail notification.</h2>
+				<p><a href=/settings class=oo-btn-link>Open your settings.</a></p>
+			</section>
+		</article>
+		${_footer()}
+	</main>
+</div>
+${iam}`
 	const head = _head({title: title('Dashboard')})
 	const html = _html({head, body})
 	return {

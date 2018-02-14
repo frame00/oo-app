@@ -45,7 +45,9 @@ export default (paths: Array<string>): CallbackOptions => {
 	</style>
 	${_nav()}
 	<article>
-		${markdown.render(contents)}
+		<section>
+			${markdown.render(contents)}
+		</section>
 	</article>
 	${_footer()}`
 	const head = _head({title: _title(title)})

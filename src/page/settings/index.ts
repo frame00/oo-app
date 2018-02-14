@@ -15,7 +15,11 @@ export default (paths: Array<string>): CallbackOptions => {
 
 	const body = `
 <style>
+	@import '../../style/article.scss';
 	@import './style.scss';
+	article {
+		padding: 3rem;
+	}
 </style>
 <div class=container>
 	${_nav({

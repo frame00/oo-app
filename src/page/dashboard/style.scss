@@ -1,36 +1,13 @@
-main {
-	height: 100vh;
-	flex-direction: column;
-}
-.links {
-	display: flex;
-	flex-direction: column;
-	flex-grow: 1;
-    align-items: center;
-	justify-content: center;
-	a {
-		text-decoration: none;
-		font-family: Roboto, sans-serif;
-		padding: 3rem;
-		font-size: 3rem;
-		font-weight: 100;
-		color: inherit;
-		-webkit-tap-highlight-color: transparent;
-		transition: box-shadow 0.5s, transform 0.5s;
-		&:hover {
-			box-shadow: 0 1px 1px #00000030, 0 16px 84px #00000020;
-			transform: translateY(-5px);
-		}
-		&.settings {
-			position: relative;
-			&::after {
-				content: 'Tip: Open here to enable E-Mail notification.';
-				display: block;
-				font-size: 0.8rem;
-				position: absolute;
-				font-weight: 400;
-				color: lightslategray;
-			}
+@import '../../style/mixin-code.scss';
+
+article {
+	h2 {
+		font-weight: 600;
+	}
+	.oo-link {
+		@mixin code;
+		span {
+			display: block;
 		}
 	}
 }
