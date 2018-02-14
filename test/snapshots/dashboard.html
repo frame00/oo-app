@@ -214,11 +214,23 @@ oo-nav {
 	-webkit-transform: translateY(-5px);
 	        transform: translateY(-5px);
 }
+.links a.settings {
+	position: relative;
+}
+.links a.settings::after {
+	content: 'Tip: Open here to enable E-Mail notification.';
+	display: block;
+	font-size: 12.8px;
+	font-size: 0.8rem;
+	position: absolute;
+	font-weight: 400;
+	color: lightslategray;
+}
 </style>
 <main>
 	<div class=links>
-		<a href=/projects slot=item>Projects</a>
-		<a href=/settings slot=item>Settings</a>
+		<a href=/projects class=projects slot=item>Projects</a>
+		<a href=/settings class=settings slot=item>Settings</a>
 	</div>
 
 <oo-footer>

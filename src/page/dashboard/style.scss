@@ -21,5 +21,16 @@ main {
 			box-shadow: 0 1px 1px #00000030, 0 16px 84px #00000020;
 			transform: translateY(-5px);
 		}
+		&.settings {
+			position: relative;
+			&::after {
+				content: 'Tip: Open here to enable E-Mail notification.';
+				display: block;
+				font-size: 0.8rem;
+				position: absolute;
+				font-weight: 400;
+				color: lightslategray;
+			}
+		}
 	}
 }

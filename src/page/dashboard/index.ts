@@ -16,8 +16,8 @@ export default (paths: Array<string>): CallbackOptions => {
 </style>
 <main>
 	<div class=links>
-		<a href=/projects slot=item>Projects</a>
-		<a href=/settings slot=item>Settings</a>
+		<a href=/projects class=projects slot=item>Projects</a>
+		<a href=/settings class=settings slot=item>Settings</a>
 	</div>
 	${_footer()}
 </main>
