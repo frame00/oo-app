@@ -178,6 +178,12 @@ oo-nav a[href='/projects']::after {
 </head>
 	<body>
 
+<style>
+	oo-projects {
+		padding: 0 48px;
+		padding: 0 3rem;
+	}
+</style>
 <div class=container>
 
 <style>
@@ -230,7 +236,31 @@ oo-nav a[href='/projects']::after {
 
 	<main>
 
-	<oo-ask-with-sign-in data-sign-in-flow=redirect on-projectcreated></oo-ask-with-sign-in>
+	<style>
+		oo-ask-with-sign-in {
+			max-width: 500px;
+		}
+		.message {
+			padding: 0 16px;
+		}
+		.message input {
+				width: 100%;
+				padding: 8px;
+				padding: 0.5rem;
+				border: 0.5px solid #ccc;
+				border-radius: 5px;
+				-webkit-box-sizing: border-box;
+				        box-sizing: border-box;
+				font-size: 16px;
+				background: whitesmoke;
+			}
+	</style>
+	<div style="margin-top: 3rem">
+		<div class=message>
+			<input disabled placeholder="Tags (, separated) 👷soon..."></input>
+		</div>
+		<oo-ask-with-sign-in data-sign-in-flow=redirect on-projectcreated></oo-ask-with-sign-in>
+	</div>
 
 <script>
 	(() => {

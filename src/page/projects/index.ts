@@ -17,6 +17,11 @@ export default (paths: Array<string>): CallbackOptions => {
 	const existsIam = typeof iam === 'string' && iam !== ''
 	const projects = `<oo-projects${existsIam ? ` data-iam=${iam}` : ''}></oo-projects>`
 	const body = `
+<style>
+	oo-projects {
+		padding: 0 3rem;
+	}
+</style>
 <div class=container>
 	${_nav({
 		items: [
