@@ -3,7 +3,7 @@ import {IncomingMessage} from 'http'
 
 export default async (uid: string): Promise<number> => {
 	const response = await new Promise<IncomingMessage>(resolve => {
-		get(`https://api.ooapp.co/stable/projects/${uid}/forks`, res => {
+		get(`https://api.ooapp.co/stable/projects/${uid}/messages`, res => {
 			resolve(res)
 		})
 	})
