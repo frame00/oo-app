@@ -214,7 +214,23 @@ oo-nav {
 
 
 	<main>
-		<oo-ask-with-sign-in data-sign-in-flow=redirect></oo-ask-with-sign-in>
+
+	<oo-ask-with-sign-in data-sign-in-flow=redirect on-projectcreated></oo-ask-with-sign-in>
+
+<script>
+	(() => {
+		window.document.querySelector('[on-projectcreated]').addEventListener('projectcreated', e => {
+			try {
+				const uid = e.detail.response[0].uid
+				window.location.href = '/project/' + uid
+			} catch(err) {
+				console.log(err)
+			}
+		})
+	})()
+</script>
+
+
 		<oo-projects></oo-projects>
 
 <oo-footer>

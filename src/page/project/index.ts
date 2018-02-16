@@ -8,6 +8,7 @@ import title from '../../lib/title'
 import messagesCount from '../../lib/fetch-api-projects-messages-count'
 import forksCount from '../../lib/fetch-api-projects-forks-count'
 import iam from '../../lib/exp-iam'
+import onProjectCreated from '../../lib/on-project-created'
 
 export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [, uid] = paths
@@ -40,11 +41,12 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 		]
 	})}
 	<main>
-		<oo-project data-uid=${uid}></oo-project>
+		<oo-project data-uid=${uid} on-projectcreated></oo-project>
 		${forks}
 		${_footer()}
 	</main>
 </div>
+${onProjectCreated}
 ${iam}
 	`
 
