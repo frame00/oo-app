@@ -28,11 +28,11 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 		items: [
 			{
 				href: `/projects`,
-				label: 'Projects'
+				label: 'Public'
 			},
 			{
 				href: '/projects/@IAM@',
-				label: 'Assigned projects'
+				label: 'My projects'
 			},
 			{
 				href: `/settings`,

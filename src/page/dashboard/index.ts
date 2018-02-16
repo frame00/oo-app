@@ -39,11 +39,11 @@ export default (paths: Array<string>): CallbackOptions => {
 		items: [
 			{
 				href: `/projects`,
-				label: 'Projects'
+				label: 'Public'
 			},
 			{
 				href: '/projects/@IAM@',
-				label: 'Assigned projects'
+				label: 'My projects'
 			},
 			{
 				href: `/settings`,

@@ -22,12 +22,12 @@ export default (paths: Array<string>): CallbackOptions => {
 		items: [
 			{
 				href: `/projects`,
-				label: 'Projects',
+				label: 'Public',
 				active: !existsIam
 			},
 			{
 				href: `/projects/${existsIam ? iam : '@IAM@'}`,
-				label: 'Assigned projects',
+				label: 'My projects',
 				active: existsIam
 			},
 			{

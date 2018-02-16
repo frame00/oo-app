@@ -147,8 +147,23 @@ oo-nav {
 	top: 0;
 	left: 0;
 	height: 100vh;
-    width: 230px;
+	width: 230px;
 }
+
+oo-nav a[href='/projects']::after {
+				content: 'beta';
+				display: inline;
+				margin-left: 3.2px;
+				margin-left: 0.2rem;
+				padding: 3.2px 8px;
+				padding: 0.2rem 0.5rem;
+				border-radius: 6px;
+				background: #ff145d;
+				color: white;
+				font-size: 12.8px;
+				font-size: 0.8rem;
+				text-transform: uppercase;
+			}
 	</style>
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67415117-7"></script>
@@ -198,7 +213,7 @@ oo-nav {
 <oo-version></oo-version>
 
 	</div>
-	<a slot=item active href=/projects>Projects</a><a slot=item  href=/projects/@IAM@>Assigned projects</a><a slot=item  href=/settings>Settings</a>
+	<a slot=item active href=/projects>Public</a><a slot=item  href=/projects/@IAM@>My projects</a><a slot=item  href=/settings>Settings</a>
 	<div slot=footer>
 		<oo-sign-out></oo-sign-out>
 	</div>
