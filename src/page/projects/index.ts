@@ -6,6 +6,7 @@ import _html from '../../template/html'
 import _nav from '../../template/nav'
 import title from '../../lib/title'
 import expIam from '../../lib/exp-iam'
+import header from './header'
 
 export default (paths: Array<string>): CallbackOptions => {
 	const [, iam] = paths
@@ -13,7 +14,8 @@ export default (paths: Array<string>): CallbackOptions => {
 		return notFound()
 	}
 
-	const projects = `<oo-projects${iam ? ` data-iam=${iam}` : ''}></oo-projects>`
+	const existsIam = typeof iam === 'string' && iam !== ''
+	const projects = `<oo-projects${existsIam ? ` data-iam=${iam}` : ''}></oo-projects>`
 	const body = `
 <div class=container>
 	${_nav({
@@ -21,12 +23,12 @@ export default (paths: Array<string>): CallbackOptions => {
 			{
 				href: `/projects`,
 				label: 'Projects',
-				active: !Boolean(iam)
+				active: !existsIam
 			},
 			{
-				href: `/projects/${iam ? iam : '@IAM@'}`,
+				href: `/projects/${existsIam ? iam : '@IAM@'}`,
 				label: 'Assigned projects',
-				active: Boolean(iam)
+				active: existsIam
 			},
 			{
 				href: `/settings`,
@@ -35,6 +37,12 @@ export default (paths: Array<string>): CallbackOptions => {
 		]
 	})}
 	<main>
+		${(() => {
+			if (!existsIam) {
+				return header()
+			}
+			return ''
+		})()}
 		${projects}
 		${_footer()}
 	</main>
