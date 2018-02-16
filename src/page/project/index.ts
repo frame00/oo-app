@@ -6,6 +6,7 @@ import _html from '../../template/html'
 import _nav from '../../template/nav'
 import title from '../../lib/title'
 import messagesCount from '../../lib/fetch-api-projects-messages-count'
+import forksCount from '../../lib/fetch-api-projects-forks-count'
 import iam from '../../lib/exp-iam'
 
 export default async (paths: Array<string>): Promise<CallbackOptions> => {
@@ -14,6 +15,12 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 		return notFound()
 	}
 
+	const count = {
+		messages: await messagesCount(uid),
+		forks: await forksCount(uid)
+	}
+
+	const forks = count.forks ? `<oo-forks data-uid=${uid}></oo-forks>` : ''
 	const body = `
 <div class=container>
 	${_nav({
@@ -34,19 +41,19 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	})}
 	<main>
 		<oo-project data-uid=${uid}></oo-project>
+		${forks}
 		${_footer()}
 	</main>
 </div>
 ${iam}
 	`
-	const count = await messagesCount(uid)
 
 	const head = _head({
 		title: title('Project'),
 		description: title('Project'),
 		paths,
 		og: {
-			image: `https://og.images.ooapp.co/project/${uid}?${count}`
+			image: `https://og.images.ooapp.co/project/${uid}?${count.messages}`
 		}
 	})
 	const html = _html({head, body})
