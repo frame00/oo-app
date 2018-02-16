@@ -23,6 +23,12 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 
 	const forks = count.forks ? `<oo-forks data-uid=${uid}></oo-forks>` : ''
 	const body = `
+<style>
+	oo-project {
+		display: block;
+		margin-bottom: 3rem;
+	}
+</style>
 <div class=container>
 	${_nav({
 		items: [
@@ -41,8 +47,10 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 		]
 	})}
 	<main>
-		<oo-project data-uid=${uid} on-projectcreated></oo-project>
-		${forks}
+		<div>
+			<oo-project data-uid=${uid} on-projectcreated></oo-project>
+			${forks}
+		</div>
 		${_footer()}
 	</main>
 </div>

@@ -190,6 +190,13 @@ oo-nav a[href='/projects']::after {
 </head>
 	<body>
 
+<style>
+	oo-project {
+		display: block;
+		margin-bottom: 48px;
+		margin-bottom: 3rem;
+	}
+</style>
 <div class=container>
 
 <style>
@@ -241,8 +248,10 @@ oo-nav a[href='/projects']::after {
 
 
 	<main>
-		<oo-project data-uid=xxx on-projectcreated></oo-project>
+		<div>
+			<oo-project data-uid=xxx on-projectcreated></oo-project>
 
+		</div>
 
 <oo-footer>
 	<a slot=item href="http://corp.frame00.com/">FRAME00, INC.</a>
