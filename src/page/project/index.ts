@@ -6,6 +6,7 @@ import _html from '../../template/html'
 import _nav from '../../template/nav'
 import title from '../../lib/title'
 import messagesCount from '../../lib/fetch-api-projects-messages-count'
+import iam from '../../lib/exp-iam'
 
 export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [, uid] = paths
@@ -22,6 +23,10 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 				label: 'Projects'
 			},
 			{
+				href: '/projects/@IAM@',
+				label: 'Assigned projects'
+			},
+			{
 				href: `/settings`,
 				label: 'Settings'
 			}
@@ -32,6 +37,7 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 		${_footer()}
 	</main>
 </div>
+${iam}
 	`
 	const count = await messagesCount(uid)
 

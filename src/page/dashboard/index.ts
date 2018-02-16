@@ -42,6 +42,10 @@ export default (paths: Array<string>): CallbackOptions => {
 				label: 'Projects'
 			},
 			{
+				href: '/projects/@IAM@',
+				label: 'Assigned projects'
+			},
+			{
 				href: `/settings`,
 				label: 'Settings'
 			}

@@ -5,13 +5,15 @@ import _footer from '../../template/footer'
 import _html from '../../template/html'
 import _nav from '../../template/nav'
 import title from '../../lib/title'
-import iam from '../../lib/exp-iam'
+import expIam from '../../lib/exp-iam'
 
 export default (paths: Array<string>): CallbackOptions => {
-	if (paths.length > 1) {
+	const [, iam] = paths
+	if (paths.length > 2) {
 		return notFound()
 	}
 
+	const projects = `<oo-projects${iam ? ` data-iam=${iam}` : ''}></oo-projects>`
 	const body = `
 <div class=container>
 	${_nav({
@@ -19,7 +21,12 @@ export default (paths: Array<string>): CallbackOptions => {
 			{
 				href: `/projects`,
 				label: 'Projects',
-				active: true
+				active: !Boolean(iam)
+			},
+			{
+				href: `/projects/${iam ? iam : '@IAM@'}`,
+				label: 'Assigned projects',
+				active: Boolean(iam)
 			},
 			{
 				href: `/settings`,
@@ -28,11 +35,11 @@ export default (paths: Array<string>): CallbackOptions => {
 		]
 	})}
 	<main>
-		<oo-projects data-iam=@IAM@></oo-projects>
+		${projects}
 		${_footer()}
 	</main>
 </div>
-${iam}`
+${expIam}`
 	const head = _head({title: title('Projects')})
 	const html = _html({head, body})
 	return {

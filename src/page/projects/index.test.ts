@@ -14,10 +14,19 @@ describe('GET:/projects', () => {
 
 	describe('When it is an unexpected path, returns 404', () => {
 		it('When exists second path', () => {
-			const html = page(['projects', 'xxx'])
+			const html = page(['projects', 'xxx', 'yyy'])
 			const snapshot = readFileSync(relPath('../../../test/snapshots/404.html'), 'utf-8')
 			assert.equal(compress(html.body), compress(snapshot))
 			assert.equal(html.status, 404)
 		})
+	})
+})
+
+describe('GET:/projects/:uid', () => {
+	it('Returns assigned projects list page', () => {
+		const html = page(['projects', 'xxx'])
+		const snapshot = readFileSync(relPath('../../../test/snapshots/projects/assigned.html'), 'utf-8')
+		assert.equal(compress(html.body), compress(snapshot))
+		assert.equal(html.status, 200)
 	})
 })
