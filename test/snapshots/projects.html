@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 
@@ -238,11 +239,24 @@ oo-nav a[href='/projects']::after {
 	<main>
 
 	<style>
-		oo-ask-with-sign-in {
-			max-width: 500px;
+		.wrap {
+			width: 100%;
+			padding: 48px;
+			padding: 3rem;
+			background: #FFEB3B;
+			margin-bottom: 48px;
+			margin-bottom: 3rem;
+		}
+			.wrap h1 {
+
+			}
+		.form {
+			margin: auto;
+			max-width: 700px;
 		}
 		.message {
-			padding: 0 16px;
+			margin-bottom: 16px;
+			margin-bottom: 1rem;
 		}
 		.message input {
 				width: 100%;
@@ -256,11 +270,14 @@ oo-nav a[href='/projects']::after {
 				background: whitesmoke;
 			}
 	</style>
-	<div style="margin-top: 3rem">
-		<div class=message>
-			<input disabled placeholder="Tags (, separated) 👷soon..."></input>
+	<div class=wrap>
+		<div class=form>
+			<h1>Any questions?</h1>
+			<div class=message>
+				<input disabled placeholder="Tags (, separated) 👷soon..."></input>
+			</div>
+			<oo-ask-with-sign-in data-sign-in-flow=redirect on-projectcreated></oo-ask-with-sign-in>
 		</div>
-		<oo-ask-with-sign-in data-sign-in-flow=redirect on-projectcreated></oo-ask-with-sign-in>
 	</div>
 
 <script>
