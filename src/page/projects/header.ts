@@ -7,7 +7,7 @@ export default () => {
 			max-width: 500px;
 		}
 		.message {
-			padding: 0 16px;
+			margin-bottom: 1rem;
 			input {
 				width: 100%;
 				padding: 0.5rem;
