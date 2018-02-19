@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 
@@ -190,11 +191,94 @@ oo-nav a[href='/projects']::after {
 </head>
 	<body>
 
-<style>
-	oo-project {
-		display: block;
-		margin-bottom: 48px;
-		margin-bottom: 3rem;
+<style>oo-project {
+	display: block;
+}
+article {
+	width: 100%;
+	padding: 48px;
+	padding: 3rem;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	background: #FFC107;
+}
+article h2 {
+		margin-top: 0;
+	}
+article section {
+		margin: auto;
+		max-width: 700px;
+	}
+.column {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+.column .preview {
+		width: 100%;
+	}
+.column .preview .image {
+			position: relative;
+			-o-object-fit: cover;
+			   object-fit: cover;
+			border-radius: 10px;
+			border: 2px solid white;
+			overflow: hidden;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+		}
+.column .preview .image::before {
+				content: 'Processing preview ...';
+			}
+.column .preview .image::after {
+				content: '';
+				display: block;
+				padding-top: 52.5%;
+			}
+.column .preview .image > * {
+				position: absolute;
+			}
+.column .preview .image img {
+				width: 100%;
+				height: 100%;
+			}
+.column .preview .image svg {
+				z-index: 1;
+			}
+.column .preview .image::before {
+				z-index: 2;
+			}
+.column .preview .image img {
+				z-index: 3;
+			}
+.column .share {
+		width: 100%;
+		padding: 32px 0;
+		padding: 2rem 0;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+	}
+.column .share div {
+			margin-bottom: 16px;
+			margin-bottom: 1rem;
+		}
+@media (min-width: 768px) {
+		.column .preview {
+			width: 70%;
+		}
+		.column .share {
+			width: 30%;
+			padding: 0 2rem;
+		}
 	}
 </style>
 <div class=container>
@@ -249,9 +333,10 @@ oo-nav a[href='/projects']::after {
 
 	<main>
 		<div>
-			<oo-project data-uid=xxx on-projectcreated></oo-project>
+			<oo-project data-uid=xxx on-messagesent on-projectcreated></oo-project>
 
 		</div>
+
 
 <oo-footer>
 	<a slot=item href="http://corp.frame00.com/">FRAME00, INC.</a>
@@ -262,6 +347,7 @@ oo-nav a[href='/projects']::after {
 </oo-footer>
 	</main>
 </div>
+
 
 <script>
 	(() => {
@@ -301,6 +387,17 @@ oo-nav a[href='/projects']::after {
 		window.onload = () => {
 			window.document.body.classList.add('loaded')
 		}
+	})()
+</script>
+
+
+<script>
+	(() => {
+		window.addEventListener('load', () => {
+			window.document.querySelectorAll('[async-src]').forEach(el => {
+				el.src = el.getAttribute('async-src')
+			})
+		})
 	})()
 </script>
 

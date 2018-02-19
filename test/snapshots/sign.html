@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 
@@ -263,6 +264,17 @@ oo-sign-in-with-redirect:not(:last-child) {
 		window.onload = () => {
 			window.document.body.classList.add('loaded')
 		}
+	})()
+</script>
+
+
+<script>
+	(() => {
+		window.addEventListener('load', () => {
+			window.document.querySelectorAll('[async-src]').forEach(el => {
+				el.src = el.getAttribute('async-src')
+			})
+		})
 	})()
 </script>
 
