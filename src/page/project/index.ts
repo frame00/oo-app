@@ -8,7 +8,11 @@ import title from '../../lib/title'
 import messagesCount from '../../lib/fetch-api-projects-messages-count'
 import forksCount from '../../lib/fetch-api-projects-forks-count'
 import iam from '../../lib/exp-iam'
+import _isPublic from '../../lib/fetch-api-projects-is-public'
 import onProjectCreated from '../../lib/on-project-created'
+import onMessageSent from './on-message-sent'
+import share from './share'
+import ogImage from '../../lib/og-image'
 
 export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [, uid] = paths
@@ -16,18 +20,24 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 		return notFound()
 	}
 
+	const apis = await Promise.all([
+		messagesCount(uid),
+		forksCount(uid),
+		_isPublic(uid)
+	])
+	const [messages, forks, isPublic] = apis
 	const count = {
-		messages: await messagesCount(uid),
-		forks: await forksCount(uid)
+		messages,
+		forks
 	}
 
-	const forks = count.forks ? `<oo-forks data-uid=${uid}></oo-forks>` : ''
+	const ooForks = count.forks ? `<oo-forks data-uid=${uid}></oo-forks>` : ''
+	const og = ogImage('project', uid, count.messages)
+	const contentShare = isPublic && count.messages > 0 ? share(paths, og) : ''
+	const contentOnMessageSent = isPublic ? onMessageSent(paths, uid, count.messages) : ''
 	const body = `
 <style>
-	oo-project {
-		display: block;
-		margin-bottom: 3rem;
-	}
+	@import './style.scss';
 </style>
 <div class=container>
 	${_nav({
@@ -48,12 +58,14 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	})}
 	<main>
 		<div>
-			<oo-project data-uid=${uid} on-projectcreated></oo-project>
-			${forks}
+			<oo-project data-uid=${uid} on-messagesent on-projectcreated></oo-project>
+			${ooForks}
 		</div>
+		${contentShare}
 		${_footer()}
 	</main>
 </div>
+${contentOnMessageSent}
 ${onProjectCreated}
 ${iam}
 	`
@@ -63,7 +75,7 @@ ${iam}
 		description: title('Project'),
 		paths,
 		og: {
-			image: `https://og.images.ooapp.co/project/${uid}?${count.messages}`
+			image: og
 		}
 	})
 	const html = _html({head, body})

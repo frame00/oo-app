@@ -1,0 +1,74 @@
+oo-project {
+	display: block;
+}
+article {
+	width: 100%;
+	padding: 3rem;
+	box-sizing: border-box;
+	background: #FFC107;
+	h2 {
+		margin-top: 0;
+	}
+	section {
+		margin: auto;
+		max-width: 700px;
+	}
+}
+.column {
+	display: flex;
+	flex-wrap: wrap;
+	.preview {
+		width: 100%;
+		.image {
+			position: relative;
+			object-fit: cover;
+			border-radius: 10px;
+			border: 2px solid white;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&::before {
+				content: 'Processing preview ...';
+			}
+			&::after {
+				content: '';
+				display: block;
+				padding-top: 52.5%;
+			}
+			> * {
+				position: absolute;
+			}
+			img {
+				width: 100%;
+				height: 100%;
+			}
+			svg {
+				z-index: 1;
+			}
+			&::before {
+				z-index: 2;
+			}
+			img {
+				z-index: 3;
+			}
+		}
+	}
+	.share {
+		width: 100%;
+		padding: 2rem 0;
+		box-sizing: border-box;
+		div {
+			margin-bottom: 1rem;
+		}
+	}
+	@media (min-width: 768px) {
+		.preview {
+			width: 70%;
+		}
+		.share {
+			width: 30%;
+			padding: 0 2rem;
+		}
+	}
+}

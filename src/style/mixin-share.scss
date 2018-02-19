@@ -1,0 +1,8 @@
+@define-mixin share {
+	display: block;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+	text-transform: capitalize;
+	text-decoration: none;
+	text-align: center;
+}
