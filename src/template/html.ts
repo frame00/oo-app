@@ -1,5 +1,6 @@
 import ooElements from './oo-elements'
 import progress from '../lib/progress'
+import asyncImg from '../lib/async-img'
 
 interface Options {
 	head: string,
@@ -16,6 +17,7 @@ export default (opts: Options): string => {
 		${body}
 		${ooElements()}
 		${progress}
+		${asyncImg}
 	</body>
 </html>`
 }
