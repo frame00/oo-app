@@ -56,7 +56,7 @@ export default (paths: Array<string>): CallbackOptions => {
 			<section>
 				<h1>Next step</h1>
 
-				<h2>1. Complete your profile, and enable to E-Mail notification.</h2>
+				<h2>1. Complete your profile</h2>
 				<p><a href=/settings class=oo-btn-link>Open your settings.</a></p>
 
 				<h2>2. Share your "Ask Me" link</h2>
