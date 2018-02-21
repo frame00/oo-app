@@ -81,7 +81,7 @@ export default (paths: Array<string>): CallbackOptions => {
 		${_footer()}
 	</main>
 </div>
-${iam}`
+${iam(false)}`
 	const head = _head({title: title('Settings')})
 	const html = _html({head, body})
 	return {

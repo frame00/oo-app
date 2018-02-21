@@ -67,7 +67,7 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 </div>
 ${contentOnMessageSent}
 ${onProjectCreated}
-${iam}
+${iam(true)}
 	`
 
 	const head = _head({

@@ -54,7 +54,7 @@ export default (paths: Array<string>): CallbackOptions => {
 		${_footer()}
 	</main>
 </div>
-${expIam}`
+${expIam(true)}`
 	const head = _head({title: title('Projects')})
 	const html = _html({head, body})
 	return {
