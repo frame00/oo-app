@@ -20,6 +20,8 @@ export default (paths: Array<string>): CallbackOptions => {
 <style>
 	oo-projects {
 		padding: 0 3rem;
+		max-width: 700px;
+		margin: auto;
 	}
 </style>
 <div class=container>
