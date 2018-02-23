@@ -16,6 +16,13 @@ export default (opts: Options): string => {
 	for (const item of items) {
 		link += `<a slot=item ${item.active ? 'active' : ''} href=${item.href}>${item.label}</a>`
 	}
+	link += `
+	<a slot=item class=chat href=https://tlk.io/ooapp>Users Chat 💬
+		<div style="color: lightgray">
+			<p style="margin: 0"><small>2月27日(火) 19時～</small></p>
+			<p style="margin: 0"><small>3月 1日(木) 19時～</small></p>
+		</div>
+	</a>`
 
 	return `
 <style>
