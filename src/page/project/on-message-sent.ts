@@ -5,11 +5,12 @@ const dummyImage = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAA
 
 export default (paths: Array<string>, uid: string, count: number) => {
 	if (count < 100) {
+		const next = count > 1 ? 1 : count
 		return `
 		<script>
 			(() => {
 				window.document.querySelector('[on-messagesent]').addEventListener('messagesent', e => {
-					const og = '${og('project', uid, ~~(count + 1))}'
+					const og = '${og('project', uid, ~~(next))}'
 					const modal = document.getElementById('answerShare')
 					const img = modal.querySelector('img')
 					img.src = og
