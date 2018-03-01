@@ -33,7 +33,7 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 
 	const ooForks = count.forks ? `<oo-forks data-uid=${uid}></oo-forks>` : ''
 	const og = ogImage('project', uid, count.messages)
-	const contentShare = isPublic && count.messages > 0 ? share(paths, og) : ''
+	const contentShare = isPublic ? share(paths, og) : ''
 	const contentOnMessageSent = isPublic ? onMessageSent(paths, uid, count.messages) : ''
 	const body = `
 <style>

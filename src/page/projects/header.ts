@@ -9,32 +9,18 @@ export default () => {
 			background: #FFEB3B;
 			margin-bottom: 3rem;
 			h1 {
-
+				margin-bottom: 3rem;
+				font-weight: 400;
 			}
 		}
 		.form {
 			margin: auto;
 			max-width: 700px;
 		}
-		.message {
-			margin-bottom: 1rem;
-			input {
-				width: 100%;
-				padding: 0.5rem;
-				border: 0.5px solid #ccc;
-				border-radius: 5px;
-				box-sizing: border-box;
-				font-size: 16px;
-				background: whitesmoke;
-			}
-		}
 	</style>
 	<div class=wrap>
 		<div class=form>
-			<h1>Any questions?</h1>
-			<div class=message>
-				<input disabled placeholder="Tags (, separated) 👷soon..."></input>
-			</div>
+			<h1>Share your knowledge</h1>
 			<oo-ask-with-sign-in data-sign-in-flow=redirect on-projectcreated></oo-ask-with-sign-in>
 		</div>
 	</div>
