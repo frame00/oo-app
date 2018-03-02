@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html lang="en">
 
@@ -12,7 +11,13 @@
 	<style>body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 12.8px;
+	font-size: 0.8rem;
 }
+	@media (min-width: 768px) {body {
+		font-size: 1rem
+}
+	}
 	body:not(.loaded) {
 		position: relative;
 		overflow: hidden;
@@ -121,13 +126,29 @@ oo-footer {
 		        flex-grow: 1;
 	}
 
-.container main > *:first-child {
+.container main > *:not(style):first-child,
+		.container main > style:first-child + * {
 			width: 100%;
-			max-width: 700px;
-			padding: 48px;
-			padding: 3rem;
+			padding: 16px;
+			padding: 1rem;
+			padding-top: 80px;
+			padding-top: 5rem;
 			-ms-flex-item-align: end;
 			    align-self: flex-end;
+			-webkit-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+
+@media (min-width: 768px) {
+
+.container main > *:not(style):first-child,
+		.container main > style:first-child + * {
+				padding: 3rem
+		}
+			}
+
+.container main .column {
+			max-width: 700px;
 		}
 
 @media (min-width: 768px) {
@@ -152,7 +173,7 @@ oo-nav {
 	z-index: 1;
 }
 
-oo-nav a[href='/projects']::after {
+oo-nav a[href='/community']::after {
 				content: 'beta';
 				display: inline;
 				margin-left: 3.2px;
@@ -185,6 +206,8 @@ oo-nav a[href='/projects']::after {
 }
 	article section {
 		max-width: 700px;
+		padding: 16px;
+		padding: 1rem;
 		margin: auto;
 	}
 	article h1,article h2,article h3 {

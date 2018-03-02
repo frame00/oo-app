@@ -12,7 +12,13 @@
 	<style>body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 12.8px;
+	font-size: 0.8rem;
 }
+	@media (min-width: 768px) {body {
+		font-size: 1rem
+}
+	}
 	body:not(.loaded) {
 		position: relative;
 		overflow: hidden;
@@ -121,13 +127,29 @@ oo-footer {
 		        flex-grow: 1;
 	}
 
-.container main > *:first-child {
+.container main > *:not(style):first-child,
+		.container main > style:first-child + * {
 			width: 100%;
-			max-width: 700px;
-			padding: 48px;
-			padding: 3rem;
+			padding: 16px;
+			padding: 1rem;
+			padding-top: 80px;
+			padding-top: 5rem;
 			-ms-flex-item-align: end;
 			    align-self: flex-end;
+			-webkit-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+
+@media (min-width: 768px) {
+
+.container main > *:not(style):first-child,
+		.container main > style:first-child + * {
+				padding: 3rem
+		}
+			}
+
+.container main .column {
+			max-width: 700px;
 		}
 
 @media (min-width: 768px) {
@@ -152,7 +174,7 @@ oo-nav {
 	z-index: 1;
 }
 
-oo-nav a[href='/projects']::after {
+oo-nav a[href='/community']::after {
 				content: 'beta';
 				display: inline;
 				margin-left: 3.2px;
@@ -259,13 +281,7 @@ article .oo-btn-link {
 <oo-version></oo-version>
 
 	</div>
-	<a slot=item  href=/projects>Public</a><a slot=item  href=/projects>My projects</a><a slot=item  href=/settings>Settings</a>
-	<a slot=item href=https://tlk.io/ooapp target=_blank rel=noopener title="匿名チャットでサービスのことをお聞かせください。他にも技術のことや、オレ転職したほうがいいのかな？などの話題もOKです">Users Chat 💬
-		<div style="color: lightgray">
-			<p style="margin: 0"><small>2月27日(火) 19時～</small></p>
-			<p style="margin: 0"><small>3月 1日(木) 19時～</small></p>
-		</div>
-	</a>
+	<a slot=item  href=/community>Community</a><a slot=item  href=/projects/@IAM@>My projects</a><a slot=item  href=/settings>Settings</a>
 	<div slot=footer>
 		<oo-sign-out></oo-sign-out>
 	</div>
@@ -281,7 +297,7 @@ article .oo-btn-link {
 
 
 	<main>
-		<article>
+		<article class=column>
 			<section>
 				<h1>Next step</h1>
 

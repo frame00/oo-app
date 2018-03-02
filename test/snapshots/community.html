@@ -6,13 +6,19 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Double O - Projects</title>
+	<title>Double O - Community</title>
 
 	<link rel="preload" as="script" href="//elements.ooapp.co/stable/oo-elements.js">
 	<style>body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-size: 12.8px;
+	font-size: 0.8rem;
 }
+	@media (min-width: 768px) {body {
+		font-size: 1rem
+}
+	}
 	body:not(.loaded) {
 		position: relative;
 		overflow: hidden;
@@ -121,13 +127,29 @@ oo-footer {
 		        flex-grow: 1;
 	}
 
-.container main > *:first-child {
+.container main > *:not(style):first-child,
+		.container main > style:first-child + * {
 			width: 100%;
-			max-width: 700px;
-			padding: 48px;
-			padding: 3rem;
+			padding: 16px;
+			padding: 1rem;
+			padding-top: 80px;
+			padding-top: 5rem;
 			-ms-flex-item-align: end;
 			    align-self: flex-end;
+			-webkit-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+
+@media (min-width: 768px) {
+
+.container main > *:not(style):first-child,
+		.container main > style:first-child + * {
+				padding: 3rem
+		}
+			}
+
+.container main .column {
+			max-width: 700px;
 		}
 
 @media (min-width: 768px) {
@@ -152,7 +174,7 @@ oo-nav {
 	z-index: 1;
 }
 
-oo-nav a[href='/projects']::after {
+oo-nav a[href='/community']::after {
 				content: 'beta';
 				display: inline;
 				margin-left: 3.2px;
@@ -182,11 +204,19 @@ oo-nav a[href='/projects']::after {
 
 <style>
 	oo-projects {
-		padding: 0 48px;
-		padding: 0 3rem;
+		padding: 0 16px;
+		padding: 0 1rem;
+		width: 100%;
 		max-width: 700px;
 		margin: auto;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
 	}
+		@media (min-width: 768px) {
+	oo-projects {
+			padding: 0 3rem
+	}
+		}
 </style>
 <div class=container>
 
@@ -223,13 +253,7 @@ oo-nav a[href='/projects']::after {
 <oo-version></oo-version>
 
 	</div>
-	<a slot=item active href=/projects>Public</a><a slot=item  href=/projects>My projects</a><a slot=item  href=/settings>Settings</a>
-	<a slot=item href=https://tlk.io/ooapp target=_blank rel=noopener title="匿名チャットでサービスのことをお聞かせください。他にも技術のことや、オレ転職したほうがいいのかな？などの話題もOKです">Users Chat 💬
-		<div style="color: lightgray">
-			<p style="margin: 0"><small>2月27日(火) 19時～</small></p>
-			<p style="margin: 0"><small>3月 1日(木) 19時～</small></p>
-		</div>
-	</a>
+	<a slot=item active href=/community>Community</a><a slot=item  href=/projects/@IAM@>My projects</a><a slot=item  href=/settings>Settings</a>
 	<div slot=footer>
 		<oo-sign-out></oo-sign-out>
 	</div>
@@ -249,28 +273,104 @@ oo-nav a[href='/projects']::after {
 	<style>
 		.wrap {
 			width: 100%;
-			padding: 48px;
-			padding: 3rem;
+			padding: 64px  16px 32px;
+			padding: 4rem  1rem 2rem;
 			background: #FFEB3B;
 			margin-bottom: 48px;
 			margin-bottom: 3rem;
 		}
-			.wrap h1 {
-				margin-bottom: 48px;
-				margin-bottom: 3rem;
-				font-weight: 400;
+			@media (min-width: 768px) {
+		.wrap {
+				padding: 3rem
+		}
 			}
-		.form {
+		section {
 			margin: auto;
 			max-width: 700px;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+			    -ms-flex-pack: justify;
+			        justify-content: space-between;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
 		}
+		@media (min-width: 768px) {
+		section {
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				    -ms-flex-direction: row;
+				        flex-direction: row
+		}
+			}
+		button {
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			outline: none;
+			padding: 0;
+			-webkit-appearance: none;
+			   -moz-appearance: none;
+			        appearance: none;
+			padding: 12.8px 22.4px;
+			padding: 0.8rem 1.4rem;
+			background: #E91E63;
+			color: white;
+			border-radius: 3rem;
+			font-size: 16px;
+			font-size: 1rem;
+		}
+		button:hover {
+				background: rgb(207, 31, 89);
+			}
+		[slot=header],
+		[slot=body] {
+			padding: 32px;
+			padding: 2rem;
+		}
+		[slot=header] h2, [slot=body] h2 {
+				margin: 0;
+				font-size: 20.8px;
+				font-size: 1.3rem;
+			}
+		@media (min-width: 768px) {
+		[slot=header] h2, [slot=body] h2 {
+					font-size: 1.5rem
+			}
+				}
+		[slot=header] {
+			background: #eceff1;
+		}
+		[slot=body] {
+			padding: 16px;
+			padding: 1rem;
+		}
+		@media (min-width: 768px) {
+		[slot=body] {
+				padding: 2rem
+		}
+			}
 	</style>
 	<div class=wrap>
-		<div class=form>
-			<h1>Share your knowledge</h1>
-			<oo-ask-with-sign-in data-sign-in-flow=redirect on-projectcreated></oo-ask-with-sign-in>
-		</div>
+		<section>
+			<h1>Open micro knowledge</h1>
+			<button onclick="document.getElementById('editor').setAttribute('data-open', 'enabled'); return false;">Write a post</button>
+		</section>
 	</div>
+	<oo-modal id=editor>
+		<div slot=header>
+			<h2>Share your knowledge</h2>
+		</div>
+		<div slot=body>
+			<oo-ask-with-sign-in on-projectcreated></oo-ask-with-sign-in>
+		</div>
+	</oo-modal>
 
 <script>
 	(() => {
