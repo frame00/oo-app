@@ -242,6 +242,7 @@ oo-nav a[href='/community']::after {
 		font-family: monospace;
 		line-height: 19.2px;
 		line-height: 1.2rem;
+		word-break: break-all;
 	}
 	article .code span, article .oo-link span {
 			display: block;
@@ -274,9 +275,16 @@ oo-nav a[href='/community']::after {
 		color: #FFCCBC;
 	}
 	article {
-		padding: 48px;
-		padding: 3rem;
+		padding: 16px;
+		padding: 1rem;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
 	}
+	@media (min-width: 768px) {
+	article {
+			padding: 3rem
+	}
+		}
 </style>
 <div class=container>
 

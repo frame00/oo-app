@@ -18,7 +18,11 @@ export default (paths: Array<string>): CallbackOptions => {
 	@import '../../style/article.scss';
 	@import './style.scss';
 	article {
-		padding: 3rem;
+		padding: 1rem;
+		box-sizing: border-box;
+		@media (min-width: 768px) {
+			padding: 3rem;
+		}
 	}
 </style>
 <div class=container>
