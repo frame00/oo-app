@@ -8,7 +8,7 @@ import title from '../../lib/title'
 import messagesCount from '../../lib/fetch-api-projects-messages-count'
 import forksCount from '../../lib/fetch-api-projects-forks-count'
 import iam from '../../lib/exp-iam'
-import _isPublic from '../../lib/fetch-api-projects-is-public'
+import projects from '../../lib/fetch-api-projects-client'
 import onProjectCreated from '../../lib/on-project-created'
 import onMessageSent from './on-message-sent'
 import share from './share'
@@ -23,9 +23,9 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const apis = await Promise.all([
 		messagesCount(uid),
 		forksCount(uid),
-		_isPublic(uid)
+		projects(uid)
 	])
-	const [messages, forks, isPublic] = apis
+	const [messages, forks, data] = apis
 	const count = {
 		messages,
 		forks
@@ -33,8 +33,8 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 
 	const ooForks = count.forks ? `<oo-forks data-uid=${uid}></oo-forks>` : ''
 	const og = ogImage('project', uid, count.messages)
-	const contentShare = isPublic ? share(paths, og) : ''
-	const contentOnMessageSent = isPublic ? onMessageSent(paths, uid, count.messages) : ''
+	const contentShare = data.public ? share(paths, og) : ''
+	const contentOnMessageSent = data.public ? onMessageSent(paths, uid, count.messages) : ''
 	const body = `
 <style>
 	@import './style.scss';
@@ -71,8 +71,8 @@ ${iam(true)}
 	`
 
 	const head = _head({
-		title: title('Project'),
-		description: title('Project'),
+		title: title(data.title || data.body || 'Project'),
+		description: data.body || '',
 		paths,
 		og: {
 			image: og
