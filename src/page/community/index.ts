@@ -5,12 +5,11 @@ import _footer from '../../template/footer'
 import _html from '../../template/html'
 import _nav from '../../template/nav'
 import title from '../../lib/title'
-import expIam from '../../lib/exp-iam'
 import header from './header'
+import iam from '../../lib/exp-iam'
 
 export default (paths: Array<string>): CallbackOptions => {
-	const [, iam] = paths
-	if (!iam || paths.length > 2) {
+	if (paths.length > 1) {
 		return notFound()
 	}
 
@@ -27,12 +26,12 @@ export default (paths: Array<string>): CallbackOptions => {
 		items: [
 			{
 				href: `/community`,
-				label: 'Community'
+				label: 'Community',
+				active: true
 			},
 			{
-				href: `/projects/${iam}`,
-				label: 'My projects',
-				active: true
+				href: '/projects/@IAM@',
+				label: 'My projects'
 			},
 			{
 				href: `/settings`,
@@ -42,12 +41,12 @@ export default (paths: Array<string>): CallbackOptions => {
 	})}
 	<main>
 		${header()}
-		<oo-projects data-iam=${iam}></oo-projects>
+		<oo-projects></oo-projects>
 		${_footer()}
 	</main>
 </div>
-${expIam(true)}`
-	const head = _head({title: title('Projects')})
+${iam(true)}`
+	const head = _head({title: title('Community')})
 	const html = _html({head, body})
 	return {
 		status: 200,

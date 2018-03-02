@@ -2,6 +2,7 @@ import {CallbackOptions} from './type/callback'
 import sign from './page/sign'
 import user from './page/user'
 import dashboard from './page/dashboard'
+import community from './page/community'
 import projects from './page/projects'
 import project from './page/project'
 import settings from './page/settings'
@@ -15,6 +16,8 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 			return sign(paths)
 		case 'dashboard':
 			return dashboard(paths)
+		case 'community':
+			return community(paths)
 		case 'projects':
 			return projects(paths)
 		case 'project':

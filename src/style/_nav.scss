@@ -6,7 +6,7 @@ oo-nav {
 	width: 230px;
 	z-index: 1;
 	a {
-		&[href='/projects'] {
+		&[href='/community'] {
 			&::after {
 				content: 'beta';
 				display: inline;

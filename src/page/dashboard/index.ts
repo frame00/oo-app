@@ -38,8 +38,8 @@ export default (paths: Array<string>): CallbackOptions => {
 	${_nav({
 		items: [
 			{
-				href: `/projects`,
-				label: 'Public'
+				href: `/community`,
+				label: 'Community'
 			},
 			{
 				href: '/projects/@IAM@',
