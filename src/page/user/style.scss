@@ -1,4 +1,5 @@
 oo-ask {
+	margin: auto;
 	width: 100%;
 	max-width: 940px;
 	align-self: flex-end;
@@ -8,6 +9,11 @@ article {
 	max-width: 700px;
 	padding: 3rem;
 	align-self: flex-end;
+    padding: 1rem;
+    box-sizing: border-box;
+	@media (min-width: 768px) {
+		padding: 3rem;
+	}
 	oo-profile {
 		margin-bottom: 3rem;
 	}

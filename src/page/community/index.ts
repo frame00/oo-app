@@ -16,9 +16,14 @@ export default (paths: Array<string>): CallbackOptions => {
 	const body = `
 <style>
 	oo-projects {
-		padding: 0 3rem;
+		padding: 0 1rem;
+		width: 100%;
 		max-width: 700px;
 		margin: auto;
+		box-sizing: border-box;
+		@media (min-width: 768px) {
+			padding: 0 3rem;
+		}
 	}
 </style>
 <div class=container>

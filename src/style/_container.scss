@@ -3,11 +3,19 @@
 	flex-direction: column;
 	main {
 		flex-grow: 1;
-		> *:first-child {
+		> *:not(style):first-child,
+		> style:first-child + * {
 			width: 100%;
-			max-width: 700px;
-			padding: 3rem;
+			padding: 1rem;
+			padding-top: 5rem;
 			align-self: flex-end;
+			box-sizing: border-box;
+			@media (min-width: 768px) {
+				padding: 3rem;
+			}
+		}
+		.column {
+			max-width: 700px;
 		}
 	}
 	@media (min-width: 768px) {

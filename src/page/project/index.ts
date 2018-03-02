@@ -57,7 +57,7 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 		]
 	})}
 	<main>
-		<div>
+		<div class=column>
 			<oo-project data-uid=${uid} on-messagesent on-projectcreated></oo-project>
 			${ooForks}
 		</div>

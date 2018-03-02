@@ -52,7 +52,7 @@ export default (paths: Array<string>): CallbackOptions => {
 		]
 	})}
 	<main>
-		<article>
+		<article class=column>
 			<section>
 				<h1>Next step</h1>
 

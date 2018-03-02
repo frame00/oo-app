@@ -40,7 +40,7 @@ export default (paths: Array<string>): CallbackOptions => {
 		]
 	})}
 	<main>
-		<oo-profile-editor></oo-profile-editor>
+		<oo-profile-editor class=column></oo-profile-editor>
 		<article class=info>
 			<section>
 				<h2>Add Double O Button to your site.</h2>

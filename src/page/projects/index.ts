@@ -17,9 +17,13 @@ export default (paths: Array<string>): CallbackOptions => {
 	const body = `
 <style>
 	oo-projects {
-		padding: 0 3rem;
-		max-width: 700px;
+		padding: 0 1rem;
+		width: 100%;
 		margin: auto;
+		box-sizing: border-box;
+		@media (min-width: 768px) {
+			padding: 0 3rem;
+		}
 	}
 </style>
 <div class=container>
@@ -42,7 +46,7 @@ export default (paths: Array<string>): CallbackOptions => {
 	})}
 	<main>
 		${header()}
-		<oo-projects data-iam=${iam}></oo-projects>
+		<oo-projects class=column data-iam=${iam}></oo-projects>
 		${_footer()}
 	</main>
 </div>

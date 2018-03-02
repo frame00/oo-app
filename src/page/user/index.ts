@@ -15,10 +15,15 @@ export default (paths: Array<string>): CallbackOptions => {
 	const body = `
 <style>
 	@import './style.scss';
+	.ask {
+		width: 100%;
+	}
 </style>
 ${_nav()}
 <main>
-	<oo-ask data-iam=${uid} data-sign-in-flow=redirect></oo-ask>
+	<div class=ask>
+		<oo-ask data-iam=${uid} data-sign-in-flow=redirect></oo-ask>
+	</div>
 	<article>
 		<oo-projects data-iam=${uid}></oo-projects>
 	</article>
