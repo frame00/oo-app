@@ -1,6 +1,4 @@
 import projects from './fetch-api-projects'
-import escapeHtml from './escape-html'
-import compress from './compress'
 
 interface Results {
 	public: boolean,
@@ -22,8 +20,8 @@ export default async (uid: string): Promise<Results> => {
 		const body = stringValue(item.Extensions, 'body')
 		return {
 			public: scope && scope.value && scope.value === 'public',
-			title: compress(escapeHtml(title)),
-			body: compress(escapeHtml(body).substring(0, 100))
+			title,
+			body
 		}
 	}
 	return {

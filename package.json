@@ -27,6 +27,7 @@
   "homepage": "https://github.com/frame00/oo-app#readme",
   "dependencies": {
     "markdown-it": "^8.4.0",
+    "text-ellipsis": "^1.0.3",
     "typescript": "^2.6.2"
   },
   "devDependencies": {
