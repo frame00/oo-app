@@ -305,7 +305,7 @@ article .oo-btn-link {
 				<p><a href=/settings class=oo-btn-link>Open your settings.</a></p>
 
 				<h2>2. Share your "Ask Me" link</h2>
-				<p><a data-inject-iam href=https://ooapp.co/@IAM@ class=oo-link>https://ooapp.co/@IAM@</a></p>
+				<p><a data-inject-slug href=https://ooapp.co/@SLUG@ class=oo-link>https://ooapp.co/@SLUG@</a></p>
 				<p class=trello>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
 			</section>
 		</article>
@@ -338,6 +338,35 @@ article .oo-btn-link {
 			window.document.querySelectorAll('[data-inject-iam]').forEach(el => {
 				if(remove) removeEl(el)
 				else el.textContent = el.textContent.replace('@IAM@', uid)
+			})
+		})(false)
+	</script>
+
+
+	<script>
+		(async (r) => {
+			const uid = window.localStorage.getItem('oo:uid')
+			const slug = await new Promise(async resolve => {
+				try {
+					const res = await fetch(`https://api.ooapp.co/stable/permalinks/${uid}`)
+					const json = await res.json()
+					const [{slug}] = json
+					resolve(slug)
+				} catch(err) {
+					resolve(uid)
+				}
+			})
+			const removeEl = el => el.parentNode.removeChild(el)
+			const signedIn = uid && uid !== 'undefined'
+			const remove = r && !signedIn
+			if(!remove && !signedIn) return window.location.href = '/sign'
+			window.document.querySelectorAll('[href*="@SLUG@"]').forEach(el => {
+				if(remove) removeEl(el)
+				else el.setAttribute('href', el.getAttribute('href').replace('@SLUG@', slug))
+			})
+			window.document.querySelectorAll('[data-inject-slug]').forEach(el => {
+				if(remove) removeEl(el)
+				else el.textContent = el.textContent.replace('@SLUG@', slug)
 			})
 		})(false)
 	</script>

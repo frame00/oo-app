@@ -6,6 +6,7 @@ import _html from '../../template/html'
 import _nav from '../../template/nav'
 import title from '../../lib/title'
 import iam from '../../lib/exp-iam'
+import slug from '../../lib/exp-slug'
 import escape from '../../lib/escape-html'
 
 export default (paths: Array<string>): CallbackOptions => {
@@ -62,7 +63,7 @@ export default (paths: Array<string>): CallbackOptions => {
 					<span data-inject-iam>${escape('<oo-button data-size="small" data-iam="@IAM@"></oo-button>')}</span>
 				</div>
 				<h2>Add Double O link to your site.</h2>
-				<p><a data-inject-iam href=https://ooapp.co/@IAM@ class=oo-link>https://ooapp.co/@IAM@</a></p>
+				<p><a data-inject-slug href=https://ooapp.co/@SLUG@ class=oo-link>https://ooapp.co/@SLUG@</a></p>
 				<p>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
 			</section>
 		</article>
@@ -85,7 +86,8 @@ export default (paths: Array<string>): CallbackOptions => {
 		${_footer()}
 	</main>
 </div>
-${iam(false)}`
+${iam(false)}
+${slug(false)}`
 	const head = _head({title: title('Settings')})
 	const html = _html({head, body})
 	return {

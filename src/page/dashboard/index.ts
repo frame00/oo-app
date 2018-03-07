@@ -6,6 +6,7 @@ import _html from '../../template/html'
 import _nav from '../../template/nav'
 import title from '../../lib/title'
 import iam from '../../lib/exp-iam'
+import slug from '../../lib/exp-slug'
 
 export default (paths: Array<string>): CallbackOptions => {
 	if (paths.length > 1) {
@@ -60,14 +61,15 @@ export default (paths: Array<string>): CallbackOptions => {
 				<p><a href=/settings class=oo-btn-link>Open your settings.</a></p>
 
 				<h2>2. Share your "Ask Me" link</h2>
-				<p><a data-inject-iam href=https://ooapp.co/@IAM@ class=oo-link>https://ooapp.co/@IAM@</a></p>
+				<p><a data-inject-slug href=https://ooapp.co/@SLUG@ class=oo-link>https://ooapp.co/@SLUG@</a></p>
 				<p class=trello>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
 			</section>
 		</article>
 		${_footer()}
 	</main>
 </div>
-${iam()}`
+${iam()}
+${slug()}`
 	const head = _head({title: title('Dashboard')})
 	const html = _html({head, body})
 	return {
