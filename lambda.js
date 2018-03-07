@@ -6,5 +6,5 @@ const event = {
 }
 
 lambda.handler(event, null, (err, result) => {
-	console.log(result.body)
+	console.log(JSON.stringify(result))
 })

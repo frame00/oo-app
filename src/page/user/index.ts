@@ -5,11 +5,30 @@ import _footer from '../../template/footer'
 import _html from '../../template/html'
 import _nav from '../../template/nav.row'
 import title from '../../lib/title'
+import permalinks from '../../lib/fetch-api-permalinks'
 
-export default (paths: Array<string>): CallbackOptions => {
+export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [uid] = paths
+	let userUid = uid
 	if (!uid || paths.length > 1) {
 		return notFound()
+	}
+	const permalink = await permalinks(uid)
+	if (permalink instanceof Error) {
+		return notFound()
+	}
+	if (Array.isArray(permalink)) {
+		const [{slug, user}] = permalink
+		if (uid !== slug) {
+			return {
+				status: 301,
+				headers: {
+					Location: `/${slug}`
+				},
+				body: ''
+			}
+		}
+		userUid = user
 	}
 
 	const body = `
@@ -22,10 +41,10 @@ export default (paths: Array<string>): CallbackOptions => {
 ${_nav()}
 <main>
 	<div class=ask>
-		<oo-ask data-iam=${uid} data-sign-in-flow=redirect></oo-ask>
+		<oo-ask data-iam=${userUid} data-sign-in-flow=redirect></oo-ask>
 	</div>
 	<article>
-		<oo-projects data-iam=${uid}></oo-projects>
+		<oo-projects data-iam=${userUid}></oo-projects>
 	</article>
 	${_footer()}
 </main>
