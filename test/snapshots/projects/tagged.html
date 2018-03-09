@@ -269,48 +269,43 @@ oo-nav a[href='/community']::after {
 
 	<main>
 
-
 	<style>
 		.wrap {
 			width: 100%;
-			padding: 48px;
-			padding: 3rem;
 			background: #FFEB3B;
-			margin-bottom: 48px;
-			margin-bottom: 3rem;
+			height: 100vh;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-align: center;
+			    -ms-flex-align: center;
+			        align-items: center;
 		}
 			.wrap h1 {
-				margin-bottom: 48px;
-				margin-bottom: 3rem;
-				font-weight: 400;
+				font-size: 48px;
+				font-size: 3rem;
 			}
-		.form {
-			margin: auto;
-			max-width: 700px;
-		}
+			.wrap h1,.wrap h2 {
+				margin-top: 0;
+				margin-bottom: 32px 0;
+				margin-bottom: 2rem 0;
+			}
 	</style>
 	<div class=wrap>
-		<div class=form>
-			<h1>Share your knowledge</h1>
-			<oo-ask-with-sign-in data-sign-in-flow=redirect on-projectcreated></oo-ask-with-sign-in>
+		<h1>👨‍💻⏳</h1>
+		<h2>#xxx</h2>
+		<div class=trello>
+			<blockquote class="trello-card"><a href="https://trello.com/c/8NTHOaWA/4-tagging-to-posts">Tagging to posts</a></blockquote><script src="https://p.trellocdn.com/embed.min.js"></script>
 		</div>
 	</div>
 
-<script>
-	(() => {
-		window.document.querySelector('[on-projectcreated]').addEventListener('projectcreated', e => {
-			try {
-				const uid = e.detail.response[0].uid
-				window.location.href = '/project/' + uid
-			} catch(err) {
-				console.log(err)
-			}
-		})
-	})()
-</script>
-
-
-			<oo-projects class=column data-iam=@IAM@></oo-projects>
 
 <oo-footer>
 	<a slot=item href="http://corp.frame00.com/">FRAME00, INC.</a>

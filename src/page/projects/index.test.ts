@@ -28,3 +28,28 @@ describe('GET:/projects/:uid', () => {
 		})
 	})
 })
+
+describe('GET:/projects/tag/:tag', () => {
+	it('Returns tagged projects list page', () => {
+		const html = page(['projects', 'tag', 'xxx'])
+		const snapshot = readFileSync(relPath('../../../test/snapshots/projects/tagged.html'), 'utf-8')
+		assert.equal(compress(html.body), compress(snapshot))
+		assert.equal(html.status, 200)
+	})
+
+	describe('When it is an unexpected path, returns 404', () => {
+		it('When not exists third path', () => {
+			const html = page(['projects', 'tag'])
+			const snapshot = readFileSync(relPath('../../../test/snapshots/404.html'), 'utf-8')
+			assert.equal(compress(html.body), compress(snapshot))
+			assert.equal(html.status, 404)
+		})
+
+		it('When exists fourth path', () => {
+			const html = page(['projects', 'tag', 'xxx', 'yyy'])
+			const snapshot = readFileSync(relPath('../../../test/snapshots/404.html'), 'utf-8')
+			assert.equal(compress(html.body), compress(snapshot))
+			assert.equal(html.status, 404)
+		})
+	})
+})

@@ -4,14 +4,30 @@ import _head from '../../template/head'
 import _footer from '../../template/footer'
 import _html from '../../template/html'
 import _nav from '../../template/nav'
+import projects from './projects'
+import tag from './tag'
 import title from '../../lib/title'
 import expIam from '../../lib/exp-iam'
 import header from './header'
 
 export default (paths: Array<string>): CallbackOptions => {
-	const [, iam] = paths
-	if (!iam || paths.length > 2) {
-		return notFound()
+	const [, first, second] = paths
+	let content: string = ''
+	switch(first) {
+		case 'tag':
+			if (!second || paths.length > 3) {
+				return notFound()
+			}
+			content = tag(`${decodeURI(second)}`)
+			break
+		default:
+			if (!first || paths.length > 2) {
+				return notFound()
+			}
+			content = `
+			${header()}
+			${projects()}`
+			break
 	}
 
 	const body = `
@@ -34,7 +50,7 @@ export default (paths: Array<string>): CallbackOptions => {
 				label: 'Community'
 			},
 			{
-				href: `/projects/${iam}`,
+				href: `/projects/@IAM@`,
 				label: 'My projects',
 				active: true
 			},
@@ -45,8 +61,7 @@ export default (paths: Array<string>): CallbackOptions => {
 		]
 	})}
 	<main>
-		${header()}
-		<oo-projects class=column data-iam=${iam}></oo-projects>
+		${content}
 		${_footer()}
 	</main>
 </div>
