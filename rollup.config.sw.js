@@ -14,7 +14,7 @@ const plugins = [
 	}),
 	replace({
 		delimiters: ['<@', '@>'],
-		PRECACHE: (Math.floor(Math.random()*10000000000)),
+		CACHE: (Math.floor(Math.random()*10000000000)),
 	})
 ]
 

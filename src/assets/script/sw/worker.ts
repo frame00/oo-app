@@ -1,8 +1,7 @@
 import {js} from '../../../lib/sources'
 
 ((self: ServiceWorkerGlobalScope) => {
-	const PRECACHE = '<@PRECACHE@>'
-	const RUNTIME = 'runtime'
+	const CACHE = '<@CACHE@>'
 
 	const PRECACHE_URLS = [
 		`https:${js.elements_ooapp_co_stable_oo_elements}`,
@@ -11,7 +10,7 @@ import {js} from '../../../lib/sources'
 
 	self.addEventListener('install', event => {
 		const handler = async () => {
-			const cache = await caches.open(PRECACHE)
+			const cache = await caches.open(CACHE)
 			await cache.addAll(PRECACHE_URLS)
 			self.skipWaiting()
 		}
@@ -19,7 +18,7 @@ import {js} from '../../../lib/sources'
 	})
 
 	self.addEventListener('activate', event => {
-		const currentCaches = [PRECACHE, RUNTIME]
+		const currentCaches = [CACHE]
 		const handler = async () => {
 			const cacheNames = await caches.keys()
 			const cachesToDelete = await cacheNames.filter(cacheName => !currentCaches.includes(cacheName))
@@ -41,7 +40,7 @@ import {js} from '../../../lib/sources'
 				if (cachedResponse) {
 					return cachedResponse
 				}
-				const cache = await caches.open(RUNTIME)
+				const cache = await caches.open(CACHE)
 				const response = await fetch(request)
 				await cache.put(request, response.clone())
 				return response
