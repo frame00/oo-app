@@ -10,7 +10,7 @@
     "deploy": "node deploy.js",
     "pretest": "BUILD_MODE=TEST npm run build",
     "posttest": "rm dist/test.js",
-    "build": "rollup -c",
+    "build": "rollup -c && rollup -c rollup.config.sw.js",
     "prebuild": "npm run lint",
     "lint": "tslint --fix --project ./",
     "prepare": "npm run build"
@@ -51,6 +51,7 @@
     "rollup-plugin-md": "0.0.7",
     "rollup-plugin-multi-entry": "^2.0.2",
     "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-transform-postcss": "^1.0.5",
     "rollup-plugin-typescript2": "^0.10.0",
     "tslint": "^5.9.1",

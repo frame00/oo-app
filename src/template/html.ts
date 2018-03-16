@@ -15,9 +15,10 @@ export default (opts: Options): string => {
 	${head}
 	<body>
 		${body}
-		${ooElements()}
 		${progress}
 		${asyncImg}
+		<script src=/assets/script/app.js></script>
+		${ooElements()}
 	</body>
 </html>`
 }

@@ -53,6 +53,7 @@ export default (opts: Options): string => {
 	<title>${title}</title>
 	${metaOg}
 	<link rel="preload" as="script" href="${js.elements_ooapp_co_stable_oo_elements}">
+	<link rel="manifest" href="/assets/json/manifest.json">
 	<style>
 		@import '../style/style.css';
 	</style>

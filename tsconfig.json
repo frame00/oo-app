@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "es2015",
     "lib": [
+      "dom",
+      "webworker",
       "es2017"
     ],
     "allowSyntheticDefaultImports": true,
