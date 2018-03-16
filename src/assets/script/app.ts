@@ -1,6 +1,6 @@
 const script = (() => {
 	if ('serviceWorker' in navigator) {
-		(navigator as Navigator).serviceWorker.register('sw.js')
+		(navigator as Navigator).serviceWorker.register('/sw.js')
 	}
 })
 
