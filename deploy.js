@@ -31,6 +31,6 @@ const options = {
 	Description: 'Templates for ooapp.co'
 }
 
-gulp.src('dist/lambda.js')
+gulp.src('dist/**')
 .pipe(zip('lambda.zip'))
 .pipe(lambda(credentials, options))
