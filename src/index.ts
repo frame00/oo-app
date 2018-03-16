@@ -8,14 +8,13 @@ import project from './page/project'
 import settings from './page/settings'
 import articles from './page/articles'
 import assets from './assets'
-import sw from './sw'
 
 export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [resource] = paths
 
 	switch (resource) {
 		case 'sw.js':
-			return sw()
+			return assets(['assets', 'script', resource])
 		case 'assets':
 			return assets(paths)
 		case 'sign':

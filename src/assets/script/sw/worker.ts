@@ -1,4 +1,4 @@
-import {js} from '../lib/sources'
+import {js} from '../../../lib/sources'
 
 ((self: ServiceWorkerGlobalScope) => {
 	const PRECACHE = '<@PRECACHE@>'

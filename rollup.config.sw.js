@@ -19,7 +19,7 @@ const plugins = [
 ]
 
 export default {
-	input: 'src/sw/worker.ts',
+	input: 'src/assets/script/sw/worker.ts',
 	output: {
 		file: 'dist/sw.js',
 		name: 'ooapp-sw',
