@@ -8,6 +8,10 @@ import {js} from '../../../lib/sources'
 		'/community'
 	]
 
+	const EXCLUDES = [
+		`${self.location.origin}/`
+	]
+
 	self.addEventListener('install', event => {
 		const handler = async () => {
 			const cache = await caches.open(CACHE)
@@ -33,7 +37,7 @@ import {js} from '../../../lib/sources'
 	self.addEventListener('fetch', event => {
 		const {request} = event
 		const {url} = request
-		if (url.startsWith(self.location.origin) ||
+		if (url.startsWith(self.location.origin) && EXCLUDES.includes(url) ||
 			url.includes('elements.ooapp.co')) {
 			const handler = async () => {
 				const cachedResponse = await caches.match(request)
