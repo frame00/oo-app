@@ -37,7 +37,7 @@ import {js} from '../../../lib/sources'
 	self.addEventListener('fetch', event => {
 		const {request} = event
 		const {url} = request
-		if (url.startsWith(self.location.origin) && EXCLUDES.includes(url) ||
+		if (url.startsWith(self.location.origin) && EXCLUDES.includes(url) === false ||
 			url.includes('elements.ooapp.co')) {
 			const handler = async () => {
 				const cachedResponse = await caches.match(request)
