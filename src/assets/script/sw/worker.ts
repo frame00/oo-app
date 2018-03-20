@@ -1,4 +1,5 @@
 import {js} from '../../../lib/sources'
+import matches from './lib/matches-path-pattern'
 
 ((self: ServiceWorkerGlobalScope) => {
 	const CACHE = '<@CACHE@>'
@@ -6,10 +7,6 @@ import {js} from '../../../lib/sources'
 	const PRECACHE_URLS = [
 		`https:${js.elements_ooapp_co_stable_oo_elements}`,
 		'/community'
-	]
-
-	const EXCLUDES = [
-		`${self.location.origin}/`
 	]
 
 	self.addEventListener('install', event => {
@@ -37,8 +34,7 @@ import {js} from '../../../lib/sources'
 	self.addEventListener('fetch', event => {
 		const {request} = event
 		const {url} = request
-		if (url.startsWith(self.location.origin) && EXCLUDES.includes(url) === false ||
-			url.includes('elements.ooapp.co')) {
+		if (matches(url)) {
 			const handler = async () => {
 				const cachedResponse = await caches.match(request)
 				if (cachedResponse) {
