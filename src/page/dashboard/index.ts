@@ -8,8 +8,7 @@ import title from '../../lib/title'
 import iam from '../../lib/exp-iam'
 import slug from '../../lib/exp-slug'
 import escape from '../../lib/escape-html'
-
-const removeIndent = (text: string) => text.replace(/\t/g, '')
+import removeIndent from '../../lib/remove-indent'
 
 export default (paths: Array<string>): CallbackOptions => {
 	if (paths.length > 1) {
