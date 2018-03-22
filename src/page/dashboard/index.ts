@@ -48,10 +48,8 @@ export default (paths: Array<string>): CallbackOptions => {
 				<oo-markdown data-inject-iam>
 					${removeIndent(`
 					\`\`\`html
-						${escape(`
-						<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
-						<oo-button data-iam="@IAM@"></oo-button>
-						`)}
+						${escape(`<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
+						<oo-button data-iam="@IAM@"></oo-button>`)}
 					\`\`\`
 					`)}
 				</oo-markdown>
@@ -60,10 +58,8 @@ export default (paths: Array<string>): CallbackOptions => {
 				<oo-markdown data-inject-iam>
 					${removeIndent(`
 					\`\`\`html
-						${escape(`
-						<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
-						<oo-button data-iam="@IAM@" data-size="small"></oo-button>
-						`)}
+						${escape(`<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
+						<oo-button data-iam="@IAM@" data-size="small"></oo-button>`)}
 					\`\`\`
 					`)}
 				</oo-markdown>
@@ -81,10 +77,8 @@ export default (paths: Array<string>): CallbackOptions => {
 				<oo-markdown data-inject-iam>
 					${removeIndent(`
 					\`\`\`html
-						${escape(`
-						<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
-						<oo-button data-iam="@IAM@" data-type="offer" data-scope="private"></oo-button>
-						`)}
+						${escape(`<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
+						<oo-button data-iam="@IAM@" data-type="offer" data-scope="private"></oo-button>`)}
 					\`\`\`
 					`)}
 				</oo-markdown>
@@ -94,10 +88,8 @@ export default (paths: Array<string>): CallbackOptions => {
 				<oo-markdown data-inject-iam>
 					${removeIndent(`
 					\`\`\`html
-						${escape(`
-						<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
-						<oo-button data-iam="@IAM@" data-size="small" data-type="offer" data-scope="private"></oo-button>
-						`)}
+						${escape(`<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
+						<oo-button data-iam="@IAM@" data-size="small" data-type="offer" data-scope="private"></oo-button>`)}
 					\`\`\`
 					`)}
 				</oo-markdown>

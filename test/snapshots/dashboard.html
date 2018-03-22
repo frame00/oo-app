@@ -230,9 +230,16 @@ oo-nav a[href='/community']::after {
 
 article h1 {
 		font-weight: bolder;
-		font-size: 80px;
-		font-size: 5rem;
+		font-size: 64px;
+		font-size: 4rem;
 	}
+
+@media (min-width: 768px) {
+
+article h1 {
+			font-size: 5rem
+	}
+		}
 
 article h1::before {
 			content: 'Start your';
@@ -328,10 +335,8 @@ oo-footer {
 				<oo-markdown data-inject-iam>
 
 ```html
-
 &lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;oo-button data-iam=&quot;@IAM@&quot;&gt;&lt;&#x2F;oo-button&gt;
-
 ```
 
 				</oo-markdown>
@@ -340,10 +345,8 @@ oo-footer {
 				<oo-markdown data-inject-iam>
 
 ```html
-
 &lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;oo-button data-iam=&quot;@IAM@&quot; data-size=&quot;small&quot;&gt;&lt;&#x2F;oo-button&gt;
-
 ```
 
 				</oo-markdown>
@@ -361,10 +364,8 @@ oo-footer {
 				<oo-markdown data-inject-iam>
 
 ```html
-
 &lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;oo-button data-iam=&quot;@IAM@&quot; data-type=&quot;offer&quot; data-scope=&quot;private&quot;&gt;&lt;&#x2F;oo-button&gt;
-
 ```
 
 				</oo-markdown>
@@ -374,10 +375,8 @@ oo-footer {
 				<oo-markdown data-inject-iam>
 
 ```html
-
 &lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;
 &lt;oo-button data-iam=&quot;@IAM@&quot; data-size=&quot;small&quot; data-type=&quot;offer&quot; data-scope=&quot;private&quot;&gt;&lt;&#x2F;oo-button&gt;
-
 ```
 
 				</oo-markdown>

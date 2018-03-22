@@ -3,7 +3,10 @@
 article {
 	h1 {
 		font-weight: bolder;
-		font-size: 5rem;
+		font-size: 4rem;
+		@media (min-width: 768px) {
+			font-size: 5rem;
+		}
 		&::before {
 			content: 'Start your';
 			font-size: 1.6rem;
