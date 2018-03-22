@@ -203,49 +203,70 @@ oo-nav a[href='/community']::after {
 </head>
 	<body>
 
-<style>article h2 {
-		font-weight: 600;
+<style>article {
+	width: 100%;
+}
+	article section {
+		max-width: 700px;
+		padding: 16px;
+		padding: 1rem;
+		margin: auto;
+	}
+	article h1,article h2,article h3 {
+		font-weight: 400;
+	}
+	article h1 {
+		font-size: 24px;
+		font-size: 1.5rem;
+	}
+	article h2 {
+		font-size: 19.2px;
+		font-size: 1.2rem;
+	}
+	article p {
+		font-size: 16px;
+		font-size: 1rem;
 	}
 
-article .oo-link {
-		display: block;
-		background: #1565C0;
-		color: white;
-		margin: 16px 0;
-		margin: 1rem 0;
-		padding: 24px;
-		padding: 1.5rem;
-		border-radius: 10px;
-		font-family: monospace;
-		line-height: 19.2px;
-		line-height: 1.2rem;
+article h1 {
+		font-weight: bolder;
+		font-size: 80px;
+		font-size: 5rem;
 	}
 
-article .oo-link span {
+article h1::before {
+			content: 'Start your';
+			font-size: 25.6px;
+			font-size: 1.6rem;
 			display: block;
+			-webkit-transform: translateY(1rem);
+			        transform: translateY(1rem);
 		}
 
-.trello {
-		font-size: 12.8px;
-		font-size: 0.8rem;
+article h1::after {
+			content: 'Anything';
+			font-size: 16px;
+			font-size: 1rem;
+			margin-left: 16px;
+			margin-left: 1rem;
+		}
+
+article a {
+		color: #2196f3;
 	}
 
-.trello a {
-			color: inherit;
-		}
+oo-footer {
+	margin-top: 160px;
+	margin-top: 10rem;
+}
 
-article .oo-link {
-			background: #FFC107;
-		}
+#askMe h1 {
+		color: #673ab7;
+	}
 
-article .oo-btn-link {
-			display: inline-block;
-			padding: 16px;
-			padding: 1rem;
-			background: whitesmoke;
-			border-radius: 10px;
-			color: inherit;
-		}
+#offerMe h1 {
+		color: #e91e63;
+	}
 </style>
 <div class=container>
 
@@ -282,7 +303,7 @@ article .oo-btn-link {
 <oo-version></oo-version>
 
 	</div>
-	<a slot=item  href=/community>Community</a><a slot=item  href=/projects/@IAM@>My projects</a><a slot=item  href=/settings>Settings</a>
+	<a slot=item  href=/community>Community</a><a slot=item  href=/projects/@IAM@>My projects</a><a slot=item active href=/settings>Settings</a>
 	<div slot=footer>
 		<oo-sign-out></oo-sign-out>
 	</div>
@@ -298,18 +319,71 @@ article .oo-btn-link {
 
 
 	<main>
-		<article class=column>
+		<article id=askMe>
 			<section>
-				<h1>Next step</h1>
+				<h1>Ask Me</h1>
+				<h2>Add "Ask Me" Button to your site.</h2>
+				<p>Medium</p>
+				<oo-button data-iam=@IAM@></oo-button>
+				<oo-markdown data-inject-iam>
 
-				<h2>1. Complete your profile</h2>
-				<p><a href=/settings class=oo-btn-link>Open your settings.</a></p>
+```html
 
-				<h2>2. Share your "Ask Me" link</h2>
+&lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;oo-button data-iam=&quot;@IAM@&quot;&gt;&lt;&#x2F;oo-button&gt;
+
+```
+
+				</oo-markdown>
+				<p>Small</p>
+				<oo-button data-iam=@IAM@ data-size=small></oo-button>
+				<oo-markdown data-inject-iam>
+
+```html
+
+&lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;oo-button data-iam=&quot;@IAM@&quot; data-size=&quot;small&quot;&gt;&lt;&#x2F;oo-button&gt;
+
+```
+
+				</oo-markdown>
+				<h2>Add link to your site.</h2>
 				<p><a data-inject-slug href=https://ooapp.co/@SLUG@ class=oo-link>https://ooapp.co/@SLUG@</a></p>
-				<p class=trello>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
+				<p>🛠 Costomize your link with <a href=/settings>"Settings".</a></p>
 			</section>
 		</article>
+		<article id=offerMe>
+			<section>
+				<h1>Offer Me</h1>
+				<h2>Add "Offer Me" Button to your site.</h2>
+				<p>Medium</p>
+				<oo-button data-iam=@IAM@ data-type=offer data-scope=private></oo-button>
+				<oo-markdown data-inject-iam>
+
+```html
+
+&lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;oo-button data-iam=&quot;@IAM@&quot; data-type=&quot;offer&quot; data-scope=&quot;private&quot;&gt;&lt;&#x2F;oo-button&gt;
+
+```
+
+				</oo-markdown>
+
+				<p>Small</p>
+				<oo-button data-iam=@IAM@ data-size=small data-type=offer data-scope=private></oo-button>
+				<oo-markdown data-inject-iam>
+
+```html
+
+&lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;
+&lt;oo-button data-iam=&quot;@IAM@&quot; data-size=&quot;small&quot; data-type=&quot;offer&quot; data-scope=&quot;private&quot;&gt;&lt;&#x2F;oo-button&gt;
+
+```
+
+				</oo-markdown>
+			</section>
+
+			</article>
 
 <oo-footer>
 	<a slot=item href="http://corp.frame00.com/">FRAME00, INC.</a>

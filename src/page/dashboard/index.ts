@@ -7,6 +7,9 @@ import _nav from '../../template/nav'
 import title from '../../lib/title'
 import iam from '../../lib/exp-iam'
 import slug from '../../lib/exp-slug'
+import escape from '../../lib/escape-html'
+
+const removeIndent = (text: string) => text.replace(/\t/g, '')
 
 export default (paths: Array<string>): CallbackOptions => {
 	if (paths.length > 1) {
@@ -16,24 +19,6 @@ export default (paths: Array<string>): CallbackOptions => {
 	const body = `
 <style>
 	@import './style.scss';
-	.trello {
-		font-size: 0.8rem;
-		a {
-			color: inherit;
-		}
-	}
-	article {
-		.oo-link {
-			background: #FFC107;
-		}
-		.oo-btn-link {
-			display: inline-block;
-			padding: 1rem;
-			background: whitesmoke;
-			border-radius: 10px;
-			color: inherit;
-		}
-	}
 </style>
 <div class=container>
 	${_nav({
@@ -48,23 +33,77 @@ export default (paths: Array<string>): CallbackOptions => {
 			},
 			{
 				href: `/settings`,
-				label: 'Settings'
+				label: 'Settings',
+				active: true
 			}
 		]
 	})}
 	<main>
-		<article class=column>
+		<article id=askMe>
 			<section>
-				<h1>Next step</h1>
-
-				<h2>1. Complete your profile</h2>
-				<p><a href=/settings class=oo-btn-link>Open your settings.</a></p>
-
-				<h2>2. Share your "Ask Me" link</h2>
+				<h1>Ask Me</h1>
+				<h2>Add "Ask Me" Button to your site.</h2>
+				<p>Medium</p>
+				<oo-button data-iam=@IAM@></oo-button>
+				<oo-markdown data-inject-iam>
+					${removeIndent(`
+					\`\`\`html
+						${escape(`
+						<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
+						<oo-button data-iam="@IAM@"></oo-button>
+						`)}
+					\`\`\`
+					`)}
+				</oo-markdown>
+				<p>Small</p>
+				<oo-button data-iam=@IAM@ data-size=small></oo-button>
+				<oo-markdown data-inject-iam>
+					${removeIndent(`
+					\`\`\`html
+						${escape(`
+						<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
+						<oo-button data-iam="@IAM@" data-size="small"></oo-button>
+						`)}
+					\`\`\`
+					`)}
+				</oo-markdown>
+				<h2>Add link to your site.</h2>
 				<p><a data-inject-slug href=https://ooapp.co/@SLUG@ class=oo-link>https://ooapp.co/@SLUG@</a></p>
-				<p class=trello>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
+				<p>🛠 Costomize your link with <a href=/settings>"Settings".</a></p>
 			</section>
 		</article>
+		<article id=offerMe>
+			<section>
+				<h1>Offer Me</h1>
+				<h2>Add "Offer Me" Button to your site.</h2>
+				<p>Medium</p>
+				<oo-button data-iam=@IAM@ data-type=offer data-scope=private></oo-button>
+				<oo-markdown data-inject-iam>
+					${removeIndent(`
+					\`\`\`html
+						${escape(`
+						<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
+						<oo-button data-iam="@IAM@" data-type="offer" data-scope="private"></oo-button>
+						`)}
+					\`\`\`
+					`)}
+				</oo-markdown>
+
+				<p>Small</p>
+				<oo-button data-iam=@IAM@ data-size=small data-type=offer data-scope=private></oo-button>
+				<oo-markdown data-inject-iam>
+					${removeIndent(`
+					\`\`\`html
+						${escape(`
+						<script async src="//elements.ooapp.co/stable/oo-button.js"></script>
+						<oo-button data-iam="@IAM@" data-size="small" data-type="offer" data-scope="private"></oo-button>
+						`)}
+					\`\`\`
+					`)}
+				</oo-markdown>
+			</section>
+
+			</article>
 		${_footer()}
 	</main>
 </div>
