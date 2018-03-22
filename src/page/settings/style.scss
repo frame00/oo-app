@@ -1,22 +1,6 @@
-@import '../../style/mixin-code.scss';
-
 article {
 	h2 {
 		font-weight: 600;
-	}
-	.code,
-	.oo-link {
-		@mixin code;
-		word-break: break-all;
-		span {
-			display: block;
-		}
-	}
-	a {
-		color: white;
-	}
-	&.info {
-		background: #03A9F4;
 	}
 	&.danger {
 		background: #FF5722;

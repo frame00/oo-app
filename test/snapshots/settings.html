@@ -230,30 +230,6 @@ oo-nav a[href='/community']::after {
 	article h2 {
 		font-weight: 600;
 	}
-	article .code,
-	article .oo-link {
-		display: block;
-		background: #1565C0;
-		color: white;
-		margin: 16px 0;
-		margin: 1rem 0;
-		padding: 24px;
-		padding: 1.5rem;
-		border-radius: 10px;
-		font-family: monospace;
-		line-height: 19.2px;
-		line-height: 1.2rem;
-		word-break: break-all;
-	}
-	article .code span, article .oo-link span {
-			display: block;
-		}
-	article a {
-		color: white;
-	}
-	article.info {
-		background: #03A9F4;
-	}
 	article.danger {
 		background: #FF5722;
 	}
@@ -339,27 +315,6 @@ oo-nav a[href='/community']::after {
 
 	<main>
 		<oo-profile-editor class=column></oo-profile-editor>
-		<article class=info>
-			<section>
-				<h2>Add Double O Button to your site.</h2>
-				<p>Medium</p>
-				<oo-button data-iam=@IAM@></oo-button>
-				<div class=code>
-					<span>&lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;</span>
-					<span data-inject-iam>&lt;oo-button data-iam=&quot;@IAM@&quot;&gt;&lt;&#x2F;oo-button&gt;</span>
-				</div>
-
-				<p>Small</p>
-				<oo-button data-size=small data-iam=@IAM@></oo-button>
-				<div class=code>
-					<span>&lt;script async src=&quot;&#x2F;&#x2F;elements.ooapp.co&#x2F;stable&#x2F;oo-button.js&quot;&gt;&lt;&#x2F;script&gt;</span>
-					<span data-inject-iam>&lt;oo-button data-size=&quot;small&quot; data-iam=&quot;@IAM@&quot;&gt;&lt;&#x2F;oo-button&gt;</span>
-				</div>
-				<h2>Add Double O link to your site.</h2>
-				<p><a data-inject-slug href=https://ooapp.co/@SLUG@ class=oo-link>https://ooapp.co/@SLUG@</a></p>
-				<p>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
-			</section>
-		</article>
 		<article class=danger>
 			<section>
 				<a href=# onclick="document.getElementById('delete').setAttribute('data-open', 'enabled'); return false;">Delete account</a>

@@ -7,7 +7,6 @@ import _nav from '../../template/nav'
 import title from '../../lib/title'
 import iam from '../../lib/exp-iam'
 import slug from '../../lib/exp-slug'
-import escape from '../../lib/escape-html'
 
 export default (paths: Array<string>): CallbackOptions => {
 	if (paths.length > 1) {
@@ -46,27 +45,6 @@ export default (paths: Array<string>): CallbackOptions => {
 	})}
 	<main>
 		<oo-profile-editor class=column></oo-profile-editor>
-		<article class=info>
-			<section>
-				<h2>Add Double O Button to your site.</h2>
-				<p>Medium</p>
-				<oo-button data-iam=@IAM@></oo-button>
-				<div class=code>
-					<span>${escape('<script async src="//elements.ooapp.co/stable/oo-button.js"></script>')}</span>
-					<span data-inject-iam>${escape('<oo-button data-iam="@IAM@"></oo-button>')}</span>
-				</div>
-
-				<p>Small</p>
-				<oo-button data-size=small data-iam=@IAM@></oo-button>
-				<div class=code>
-					<span>${escape('<script async src="//elements.ooapp.co/stable/oo-button.js"></script>')}</span>
-					<span data-inject-iam>${escape('<oo-button data-size="small" data-iam="@IAM@"></oo-button>')}</span>
-				</div>
-				<h2>Add Double O link to your site.</h2>
-				<p><a data-inject-slug href=https://ooapp.co/@SLUG@ class=oo-link>https://ooapp.co/@SLUG@</a></p>
-				<p>Do you want to edit this link URL? Please vote in <a href=https://trello.com/c/KYyz7db5 target=_blank rel=noopener>Trello</a>.</p>
-			</section>
-		</article>
 		<article class=danger>
 			<section>
 				<a href=# onclick="document.getElementById('delete').setAttribute('data-open', 'enabled'); return false;">Delete account</a>
