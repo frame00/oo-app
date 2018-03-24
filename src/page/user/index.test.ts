@@ -6,7 +6,7 @@ import compress from '../../lib/compress'
 
 describe('GET:/:UID', () => {
 	it('Returns ask page', async () => {
-		const html = await page(['xxx'])
+		const html = await page(['xxx'], true)
 		const snapshot = readFileSync(relPath('../../../test/snapshots/ask.html'), 'utf-8')
 		assert.equal(compress(html.body), compress(snapshot))
 		assert.equal(html.status, 200)
@@ -36,7 +36,7 @@ describe('GET:/:UID', () => {
 		})
 
 		it('"/aggre" as "/JEKAgXAqHmqC0jBoH2zc8l7E"', async () => {
-			const html = await page(['aggre'])
+			const html = await page(['aggre'], true)
 			const snapshot = readFileSync(relPath('../../../test/snapshots/aggre.html'), 'utf-8')
 			assert.equal(compress(html.body), compress(snapshot))
 			assert.equal(html.status, 200)

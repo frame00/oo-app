@@ -13,14 +13,7 @@ import onProjectCreated from '../../lib/on-project-created'
 import onMessageSent from './on-message-sent'
 import share from './share'
 import ogImage from '../../lib/og-image'
-import escapeHtml from '../../lib/escape-html'
-import compress from '../../lib/compress'
-import ellipsis from 'text-ellipsis'
-
-const mini = (d: string, trim: number = 32) => {
-	const text: string = ellipsis(escapeHtml(d), trim)
-	return compress(text)
-}
+import mini from '../../lib/mini'
 
 export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [, uid] = paths
