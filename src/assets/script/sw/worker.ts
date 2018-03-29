@@ -5,8 +5,7 @@ import matches from './lib/matches-path-pattern'
 	const CACHE = '<@CACHE@>'
 
 	const PRECACHE_URLS = [
-		`https:${js.elements_ooapp_co_stable_oo_elements}`,
-		'/community'
+		`https:${js.elements_ooapp_co_stable_oo_elements}`
 	]
 
 	self.addEventListener('install', event => {
