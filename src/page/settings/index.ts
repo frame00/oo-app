@@ -29,10 +29,6 @@ export default (paths: Array<string>): CallbackOptions => {
 	${_nav({
 		items: [
 			{
-				href: `/community`,
-				label: 'Community'
-			},
-			{
 				href: '/projects/@IAM@',
 				label: 'My projects'
 			},

@@ -44,10 +44,6 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	${_nav({
 		items: [
 			{
-				href: `/community`,
-				label: 'Community'
-			},
-			{
 				href: '/projects/@IAM@',
 				label: 'My projects'
 			},
