@@ -20,7 +20,7 @@ const json = {
 			sizes: '192x192'
 		}
 	],
-	start_url: '/community',
+	start_url: '/dashboard',
 	background_color: color,
 	theme_color:color,
 	display: 'standalone'
