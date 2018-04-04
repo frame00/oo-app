@@ -28,8 +28,7 @@ export default (paths: Array<string>): CallbackOptions => {
 			},
 			{
 				href: `/settings`,
-				label: 'Settings',
-				active: true
+				label: 'Settings'
 			}
 		]
 	})}
