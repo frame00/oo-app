@@ -14,6 +14,7 @@ import post from './modal/post'
 import usage from './modal/usage'
 import expIam from '../../lib/exp-iam'
 import expSlug from '../../lib/exp-slug'
+import whenSignedIn from './script/when-signed-in'
 
 export default async (paths: Array<string>, test: boolean = false): Promise<CallbackOptions> => {
 	const [uid] = paths
@@ -66,6 +67,7 @@ ${usage().template}
 	</article>
 	${_footer()}
 </main>
+${whenSignedIn()}
 ${expIam()}
 ${expSlug()}
 	`
