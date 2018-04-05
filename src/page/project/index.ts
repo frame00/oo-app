@@ -42,10 +42,12 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 </style>
 ${_nav()}
 <main>
-	<div class=column>
-		<oo-project data-uid=${uid} on-messagesent on-projectcreated></oo-project>
-		${ooForks}
-	</div>
+	<article>
+		<section>
+			<oo-project data-uid=${uid} on-messagesent on-projectcreated></oo-project>
+			${ooForks}
+		</section>
+	</article>
 	${contentShare}
 	${_footer()}
 </main>

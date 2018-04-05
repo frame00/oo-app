@@ -214,8 +214,6 @@ oo-nav a[href='/community']::after {
 
 <style>oo-project {
 	display: block;
-	width: 100%;
-	max-width: 100%;
 	margin: 16px;
 	margin: 1rem;
 }
@@ -229,12 +227,14 @@ oo-forks {
 }
 article {
 	width: 100%;
-	padding: 48px;
-	padding: 3rem;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
-	background: #FFC107;
 }
+article#sharing {
+		padding: 48px;
+		padding: 3rem;
+		-webkit-box-sizing: border-box;
+		        box-sizing: border-box;
+		background: #FFC107;
+	}
 article h2 {
 		margin-top: 0;
 	}
@@ -412,10 +412,12 @@ article section {
 </nav>
 
 <main>
-	<div class=column>
-		<oo-project data-uid=xxx on-messagesent on-projectcreated></oo-project>
+	<article>
+		<section>
+			<oo-project data-uid=xxx on-messagesent on-projectcreated></oo-project>
 
-	</div>
+		</section>
+	</article>
 
 
 <oo-footer>

@@ -5,7 +5,7 @@ import loading from '../../template/loading.svg'
 export default (paths: Array<string>, ogp: string) => {
 	const url = `https://ooapp.co/${paths.join('/')}`
 	return `
-	<article>
+	<article id=sharing>
 		<section>
 			<h2>Share answer</h2>
 			<div class=column>
