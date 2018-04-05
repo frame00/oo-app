@@ -18,3 +18,17 @@ article {
 		margin-bottom: 3rem;
 	}
 }
+oo-modal {
+	[slot] {
+		padding: 1rem;
+		@media (min-width: 768px) {
+			padding: 2rem;
+		}
+	}
+	[slot=header] {
+		background: whitesmoke;
+		h1,h2,h3 {
+			margin: 0;
+		}
+	}
+}
