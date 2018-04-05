@@ -68,9 +68,16 @@ export default (links: Array<string> = []): string => {
 			<a href=/dashboard>${logo('#ffd600')}</a>
 			${version()}
 		</div>
-		<div class=items>
-			${links.join('')}
-		</div>
+		${(() => {
+			if (links.length > 0) {
+				return `
+				<div class=items>
+					${links.join('')}
+				</div>
+				`
+			}
+			return ''
+		})()}
 	</div>
 </nav>
 `
