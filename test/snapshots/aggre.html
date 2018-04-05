@@ -233,6 +233,9 @@ article oo-profile {
 		margin-bottom: 48px;
 		margin-bottom: 3rem;
 	}
+a {
+	color: #3f51b5;
+}
 section#guide {
 		margin: 16px;
 		margin: 1rem;
@@ -257,9 +260,6 @@ section#guide h3::before {
 				margin-right: 8px;
 				margin-right: 0.5rem;
 			}
-section#guide a {
-			color: #3f51b5;
-		}
 section#guide a.btn {
 				display: inline-block;
 				padding: 5px 12px;
@@ -304,6 +304,10 @@ oo-modal#delete [slot=body] {
 .wait {
 	display: none;
 }
+.tweet > a {
+		color: white;
+		display: inline-block;
+	}
 .ask {
 		width: 100%;
 	}
@@ -522,6 +526,28 @@ oo-modal#delete [slot=body] {
 		<section id=guide class=wait>
 			<h2>Question or knowledge doesn't exist yet.</h2>
 			<h3>Share your profile.</h3>
+			<div class=tweet>
+
+	<style>.twitter-share-button {
+			display: block;
+			padding: 8px 16px;
+			padding: 0.5rem 1rem;
+			border-radius: 5px;
+			text-transform: capitalize;
+			text-decoration: none;
+			text-align: center;
+			background: #2196F3;
+			color: white;
+		}
+	</style>
+	<a class=twitter-share-button
+		href="https://twitter.com/intent/tweet?text=https://ooapp.co/aggre"
+		target=_blank
+		rel=noopener>
+	Tweet
+	</a>
+
+			</div>
 			<p><a data-inject-slug href=https://ooapp.co/@SLUG@>https://ooapp.co/@SLUG@</a></p>
 			<p>🛠 Costomize your link with <a class=btn href=# onclick="document.getElementById('settings').setAttribute('data-open', 'enabled'); return false;">Profile and settings</a>.</p>
 			<h3>Add button to your site.</h3>
@@ -596,7 +622,7 @@ oo-modal#delete [slot=body] {
 				if(remove) removeEl(el)
 				else el.textContent = el.textContent.replace('@IAM@', uid)
 			})
-		})(false)
+		})(true)
 	</script>
 
 
@@ -625,7 +651,7 @@ oo-modal#delete [slot=body] {
 				if(remove) removeEl(el)
 				else el.textContent = el.textContent.replace('@SLUG@', slug)
 			})
-		})(false)
+		})(true)
 	</script>
 
 
