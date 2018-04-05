@@ -7,6 +7,7 @@ import project from './page/project'
 import settings from './page/settings'
 import articles from './page/articles'
 import assets from './assets'
+import stripe from './page/stripe'
 
 export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [resource] = paths
@@ -28,6 +29,8 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 			return settings(paths)
 		case 'articles':
 			return articles(paths)
+		case 'stripe':
+			return stripe(paths)
 		default:
 			return user(paths)
 	}
