@@ -3,7 +3,7 @@ import notFound from '../404'
 import _head from '../../template/head'
 import _footer from '../../template/footer'
 import _html from '../../template/html'
-import _nav from '../../template/nav'
+import _nav from '../../template/nav.row'
 import title from '../../lib/title'
 import messagesCount from '../../lib/fetch-api-projects-messages-count'
 import forksCount from '../../lib/fetch-api-projects-forks-count'
@@ -40,28 +40,15 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 <style>
 	@import './style.scss';
 </style>
-<div class=container>
-	${_nav({
-		items: [
-			{
-				href: '/projects/@IAM@',
-				label: 'My projects'
-			},
-			{
-				href: `/settings`,
-				label: 'Settings'
-			}
-		]
-	})}
-	<main>
-		<div class=column>
-			<oo-project data-uid=${uid} on-messagesent on-projectcreated></oo-project>
-			${ooForks}
-		</div>
-		${contentShare}
-		${_footer()}
-	</main>
-</div>
+${_nav()}
+<main>
+	<div class=column>
+		<oo-project data-uid=${uid} on-messagesent on-projectcreated></oo-project>
+		${ooForks}
+	</div>
+	${contentShare}
+	${_footer()}
+</main>
 ${contentOnMessageSent}
 ${onProjectCreated}
 ${iam(true)}
