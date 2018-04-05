@@ -8,7 +8,7 @@ import _title from '../../lib/title'
 import iam from '../../lib/exp-iam'
 
 export default (paths: Array<string>): CallbackOptions => {
-	if (paths.length > 2) {
+	if (paths.length > 1) {
 		return notFound()
 	}
 

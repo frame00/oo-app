@@ -3,12 +3,13 @@ import page from './index'
 import {readFileSync} from 'fs'
 import relPath from '../../lib/test/rel-path'
 import compress from '../../lib/compress'
+import redirectToUser from '../../template/redirect-to-user'
 
 describe('GET:/projects/:uid', () => {
-	it('Returns assigned projects list page', () => {
+	it('Returns redirect page', () => {
 		const html = page(['projects', 'xxx'])
-		const snapshot = readFileSync(relPath('../../../test/snapshots/projects/assigned.html'), 'utf-8')
-		assert.equal(compress(html.body), compress(snapshot))
+		const results = redirectToUser()
+		assert.equal(compress(html.body), compress(results))
 		assert.equal(html.status, 200)
 	})
 
