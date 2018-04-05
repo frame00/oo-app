@@ -1,13 +1,19 @@
 import {CallbackOptions} from './type/callback'
 import sign from './page/sign'
 import user from './page/user'
-import dashboard from './page/dashboard'
 import projects from './page/projects'
 import project from './page/project'
-import settings from './page/settings'
 import articles from './page/articles'
 import assets from './assets'
 import stripe from './page/stripe'
+import redirectToUser from './template/redirect-to-user'
+
+const toUserPage = (): CallbackOptions => {
+	return {
+		status: 200,
+		body: redirectToUser()
+	}
+}
 
 export default async (paths: Array<string>): Promise<CallbackOptions> => {
 	const [resource] = paths
@@ -20,13 +26,13 @@ export default async (paths: Array<string>): Promise<CallbackOptions> => {
 		case 'sign':
 			return sign(paths)
 		case 'dashboard':
-			return dashboard(paths)
+			return toUserPage()
 		case 'projects':
 			return projects(paths)
 		case 'project':
 			return project(paths)
 		case 'settings':
-			return settings(paths)
+			return toUserPage()
 		case 'articles':
 			return articles(paths)
 		case 'stripe':

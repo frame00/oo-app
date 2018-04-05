@@ -3,12 +3,10 @@ import notFound from '../404'
 import _head from '../../template/head'
 import _footer from '../../template/footer'
 import _html from '../../template/html'
-import _nav from '../../template/nav'
-import projects from './projects'
+import _nav from '../../template/nav.row'
 import tag from './tag'
 import title from '../../lib/title'
-import expIam from '../../lib/exp-iam'
-import header from './header'
+import redirectToUser from '../../template/redirect-to-user'
 
 export default (paths: Array<string>): CallbackOptions => {
 	const [, first, second] = paths
@@ -24,10 +22,10 @@ export default (paths: Array<string>): CallbackOptions => {
 			if (!first || paths.length > 2) {
 				return notFound()
 			}
-			content = `
-			${header()}
-			${projects()}`
-			break
+			return {
+				status: 200,
+				body: redirectToUser()
+			}
 	}
 
 	const body = `
@@ -42,26 +40,13 @@ export default (paths: Array<string>): CallbackOptions => {
 		}
 	}
 </style>
-<div class=container>
-	${_nav({
-		items: [
-			{
-				href: `/projects/@IAM@`,
-				label: 'My projects',
-				active: true
-			},
-			{
-				href: `/settings`,
-				label: 'Settings'
-			}
-		]
-	})}
-	<main>
-		${content}
-		${_footer()}
-	</main>
-</div>
-${expIam(true)}`
+${_nav()}
+<main>
+	${content}
+	${_footer()}
+</main>
+	`
+
 	const head = _head({title: title('Projects')})
 	const html = _html({head, body})
 	return {
