@@ -12,6 +12,7 @@ import mini from '../../lib/mini'
 import settings from './modal/setting'
 import post from './modal/post'
 import usage from './modal/usage'
+import deleteAccount from './modal/delete'
 import expIam from '../../lib/exp-iam'
 import expSlug from '../../lib/exp-slug'
 import whenSignedIn from './script/when-signed-in'
@@ -61,6 +62,7 @@ ${_nav([
 ${post().template}
 ${settings().template}
 ${usage().template}
+${deleteAccount().template}
 <main>
 	<div class=ask>
 		<oo-ask class=content data-iam=${userUid} data-sign-in-flow=redirect></oo-ask>

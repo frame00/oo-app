@@ -12,6 +12,15 @@ export default (): Part => {
 		</div>
 		<div slot=body>
 			<oo-profile-editor></oo-profile-editor>
+			<a href=#
+			   onclick="document.getElementById('delete').setAttribute('data-open', 'enabled'); return false;"
+			   style="
+					display: inline-block;
+					margin-top: 3rem;
+					font-size: 0.9rem;
+					text-decoration: none;
+				"
+			   >Delete account</a>
 		</div>
 	</oo-modal>
 	`

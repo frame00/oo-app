@@ -61,6 +61,22 @@ oo-modal {
 			margin: 0;
 		}
 	}
+	&#delete {
+		[slot] {
+			background: #FF5722;
+			padding: 2rem;
+		}
+		[slot=header] {
+			color: white;
+			background: #E64A19;
+			h2 {
+				margin: auto;
+			}
+		}
+		[slot=body] {
+			color: #FFCCBC;
+		}
+	}
 }
 .wait {
 	display: none;
