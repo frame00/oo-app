@@ -17,6 +17,7 @@ import expIam from '../../lib/exp-iam'
 import expSlug from '../../lib/exp-slug'
 import whenSignedIn from './script/when-signed-in'
 import projectsExists from './script/projects-exists'
+import tweet from '../../lib/tweet'
 
 const onClickHandler = (id: string) => `document.getElementById('${id}').setAttribute('data-open', 'enabled'); return false;`
 
@@ -45,6 +46,7 @@ export default async (paths: Array<string>, test: boolean = false): Promise<Call
 	}
 	const data = await users(userUid)
 	const og = ogImage('users', userUid, test ? 0 : ~~(Math.random() * 1000))
+	const shareingUrl = `https://ooapp.co/${uid}`
 
 	const body = `
 <style>
@@ -72,6 +74,12 @@ ${deleteAccount().template}
 		<section id=guide class=wait>
 			<h2>Question or knowledge doesn't exist yet.</h2>
 			<h3>Share your profile.</h3>
+			<div class=tweet>
+				${tweet({
+					text: '',
+					url: shareingUrl
+				})}
+			</div>
 			<p><a data-inject-slug href=https://ooapp.co/@SLUG@>https://ooapp.co/@SLUG@</a></p>
 			<p>🛠 Costomize your link with <a class=btn href=# onclick="${onClickHandler(settings().id)}">Profile and settings</a>.</p>
 			<h3>Add button to your site.</h3>
@@ -84,8 +92,8 @@ ${deleteAccount().template}
 </main>
 ${whenSignedIn()}
 ${projectsExists(userUid)}
-${expIam()}
-${expSlug()}
+${expIam(true)}
+${expSlug(true)}
 	`
 
 	const head = _head({

@@ -13,6 +13,9 @@ article {
 		margin-bottom: 3rem;
 	}
 }
+a {
+	color: #3f51b5;
+}
 section {
 	&#guide {
 		margin: 1rem;
@@ -35,7 +38,6 @@ section {
 			}
 		}
 		a {
-			color: #3f51b5;
 			&.btn {
 				display: inline-block;
 				padding: 5px 12px;
@@ -82,4 +84,10 @@ oo-modal {
 }
 .wait {
 	display: none;
+}
+.tweet {
+	> a {
+		color: white;
+		display: inline-block;
+	}
 }
