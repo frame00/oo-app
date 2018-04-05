@@ -1,21 +1,51 @@
-oo-ask {
-	margin: auto;
+.content {
+	margin: 0 auto;
 	width: 100%;
 	max-width: 940px;
+}
+oo-ask {
 	align-self: flex-end;
 }
 article {
-	width: 100%;
-	max-width: 700px;
-	padding: 3rem;
-	align-self: flex-end;
-    padding: 1rem;
-    box-sizing: border-box;
-	@media (min-width: 768px) {
-		padding: 3rem;
-	}
 	oo-profile {
 		margin-bottom: 3rem;
+	}
+}
+section {
+	&#guide {
+		margin: 1rem;
+		padding: 2rem;
+		border-radius: 10px;
+		background-color: whitesmoke;
+		color: gray;
+		h2 {
+			margin: 0;
+			margin-bottom: 2rem;
+			color: lightgrey;
+		}
+		h3 {
+			&:not(:first-of-type) {
+				margin-top: 2rem;
+			}
+			&::before {
+				content: '💡';
+				margin-right: 0.5rem;
+			}
+		}
+		a {
+			color: #3f51b5;
+			&.btn {
+				display: inline-block;
+				padding: 5px 12px;
+				background: gray;
+				color: white;
+				text-decoration: none;
+				border-radius: 60px;
+			}
+			&[data-inject-slug] {
+				word-wrap: break-word;
+			}
+		}
 	}
 }
 oo-modal {
@@ -31,4 +61,7 @@ oo-modal {
 			margin: 0;
 		}
 	}
+}
+.wait {
+	display: none;
 }
