@@ -5,10 +5,9 @@ export default (links: Array<string> = []): string => {
 	return `
 <style>
 	nav {
-		padding: 1rem;
 		border-bottom: 0.5px solid lightgray;
-		@media (min-width: 768px) {
-			padding: 2rem;
+		.container {
+			padding: 0;
 		}
 	}
 	.container {
@@ -24,6 +23,13 @@ export default (links: Array<string> = []): string => {
 			}
 		}
 	}
+	.brand,
+	.items {
+		padding: 1rem;
+		@media (min-width: 768px) {
+			padding: 2rem 1rem;
+		}
+	}
 	.brand {
 		a {
 			display: block;
@@ -33,16 +39,25 @@ export default (links: Array<string> = []): string => {
 	.items {
 		display: flex;
 		align-items: center;
+		overflow-x: auto;
 		> a {
 			font-weight: 600;
 			text-decoration: none;
 			color: #ffc107;
 			font-size: 1.2rem;
+			word-break: keep-all;
+			white-space: pre;
 			&:hover {
 				color: #ff9800;
 			}
 			&:not(:last-child) {
 				margin-right: 2rem;
+			}
+		}
+		oo-sign-out {
+			min-width: 130px;
+			@media (min-width: 768px) {
+				min-width: auto;
 			}
 		}
 	}
