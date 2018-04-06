@@ -1,12 +1,12 @@
-import {js} from '../../../lib/sources'
 import matches from './lib/matches-path-pattern'
+import onForeground from './lib/on-foreground'
+import {SWMessageEvent} from '../../../type/sw'
+import precacheUrls from './lib/precache-urls'
 
 ((self: ServiceWorkerGlobalScope) => {
 	const CACHE = '<@CACHE@>'
 
-	const PRECACHE_URLS = [
-		`https:${js.elements_ooapp_co_stable_oo_elements}`
-	]
+	const PRECACHE_URLS = precacheUrls
 
 	self.addEventListener('install', event => {
 		const handler = async () => {
@@ -45,6 +45,17 @@ import matches from './lib/matches-path-pattern'
 				return response
 			}
 			event.respondWith(handler())
+		}
+	})
+
+	self.addEventListener('message', (e: SWMessageEvent) => {
+		const {data} = e
+		switch (data) {
+			case 'foreground':
+				onForeground(e, CACHE)
+				break
+			default:
+				break
 		}
 	})
 })(<ServiceWorkerGlobalScope>self)
