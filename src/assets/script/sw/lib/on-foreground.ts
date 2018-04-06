@@ -14,13 +14,17 @@ export default (e: SWMessageEvent, cacheName: string) => {
 			return Promise.all([cachedResult.clone().text(), results[i].clone().text()])
 		}))
 		const cache = await caches.open(cacheName)
-		return Promise.all(toTexts.map((text, i) => {
+		const operation = await Promise.all(toTexts.map(async (text, i) => {
 			const [prev, next] = text
 			if (prev.length === next.length) {
-				return null
+				return false
 			}
-			return cache.put(requests[i], results[i].clone())
+			await cache.put(requests[i], results[i].clone())
+			return true
 		}))
+		if (operation.includes(true)) {
+			e.ports[0].postMessage('hasUpdate')
+		}
 	}
 	e.waitUntil(handler())
 }

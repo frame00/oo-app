@@ -1,6 +1,7 @@
 import ooElements from './oo-elements'
 import progress from '../lib/progress'
 import asyncImg from '../lib/async-img'
+import hasUpdate from './has-update'
 
 interface Options {
 	head: string,
@@ -19,6 +20,7 @@ export default (opts: Options): string => {
 		${asyncImg}
 		<script src=/assets/script/app.js></script>
 		${ooElements()}
+		${hasUpdate()}
 	</body>
 </html>`
 }

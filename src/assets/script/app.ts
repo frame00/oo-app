@@ -23,6 +23,13 @@ const script = (() => {
 
 		(navigator as Navigator).serviceWorker.register('/sw.js').then(() => {
 			return sendMessage('foreground')
+		}).then(message => {
+			if (message === 'hasUpdate') {
+				const update = document.getElementById('updateToast')
+				if (update) {
+					update.style.display = 'block'
+				}
+			}
 		})
 	}
 })

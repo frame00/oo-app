@@ -1,4 +1,4 @@
-export type SWMessageForeground = 'foreground'
+export type SWMessageForeground = 'foreground' | 'hasUpdate'
 
 export type SWMessage = SWMessageForeground
 
