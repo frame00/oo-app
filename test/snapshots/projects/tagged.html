@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 
@@ -382,5 +383,64 @@ oo-nav a[href='/community']::after {
 
 		<script src=/assets/script/app.js></script>
 		<script async src="//elements.ooapp.co/stable/oo-elements.js"></script>
+
+	<style>
+		#updateToast {
+			display: none;
+			position: fixed;
+			width: 90%;
+
+			left: 50%;
+			-webkit-transform: translateX(-50%);
+			        transform: translateX(-50%);
+			-webkit-box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25882);
+			        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25882);
+			background: #2196f3;
+			color: white;
+			font-weight: 600;
+			padding: 16px 32px;
+			padding: 1rem 2rem;
+			border-radius: 99px;
+			cursor: pointer;
+			-webkit-box-sizing: border-box;
+			        box-sizing: border-box;
+
+			-webkit-animation-name: showNotification;
+
+			        animation-name: showNotification;
+			-webkit-animation-duration: 0.3s;
+			        animation-duration: 0.3s;
+			-webkit-animation-fill-mode: forwards;
+			        animation-fill-mode: forwards;
+		}
+
+			@media (min-width: 768px) {
+		#updateToast {
+				width: auto
+		}
+			}
+		@-webkit-keyframes showNotification {
+			from {
+				opacity: 0;
+				bottom: -100px;
+			}
+			to {
+				opacity: 1;
+				bottom: 40px;
+			}
+		}
+		@keyframes showNotification {
+			from {
+				opacity: 0;
+				bottom: -100px;
+			}
+			to {
+				opacity: 1;
+				bottom: 40px;
+			}
+		}
+	</style>
+	<div id=updateToast onclick="location.reload()">A new version is available.<br />Update now!</div>
+
 	</body>
 </html>
