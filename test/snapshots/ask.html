@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 <html lang="en">
 
@@ -18,17 +17,14 @@
 		<meta name=twitter:card content=summary_large_image />
 		<meta name=twitter:site content=@ooappco />
 	<link rel="preload" as="script" href="//elements.ooapp.co/stable/oo-elements.js">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:500,700" rel="stylesheet">
 	<link rel="manifest" href="/assets/json/manifest.json">
 	<style>body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	font-size: 14.4px;
-	font-size: 0.9rem;
+	font-size: 16px;
+	font-size: 1rem;
 }
-	@media (min-width: 768px) {body {
-		font-size: 1rem
-}
-	}
 	body:not(.loaded) {
 		position: relative;
 		overflow: hidden;
@@ -224,12 +220,15 @@ oo-ask {
 article {
 	padding: 16px;
 	padding: 1rem;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 article oo-profile {
 		margin-bottom: 48px;
 		margin-bottom: 3rem;
+	}
+article.content {
+		max-width: 700px;
 	}
 a {
 	color: #3f51b5;
@@ -313,7 +312,7 @@ oo-modal#delete [slot=body] {
 
 <style>
 	nav {
-		border-bottom: 0.5px solid lightgray;
+		border-bottom: 2px solid whitesmoke;
 	}
 		nav .container {
 			padding: 0;
@@ -375,7 +374,7 @@ oo-modal#delete [slot=body] {
 				margin-right: 2rem;
 			}
 	.items oo-sign-out {
-			min-width: 130px;
+			min-width: 160px;
 		}
 	@media (min-width: 768px) {
 	.items oo-sign-out {
