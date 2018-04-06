@@ -5,7 +5,7 @@ export default (links: Array<string> = []): string => {
 	return `
 <style>
 	nav {
-		border-bottom: 0.5px solid lightgray;
+		border-bottom: 2px solid whitesmoke;
 		.container {
 			padding: 0;
 		}
@@ -55,7 +55,7 @@ export default (links: Array<string> = []): string => {
 			}
 		}
 		oo-sign-out {
-			min-width: 130px;
+			min-width: 160px;
 			@media (min-width: 768px) {
 				min-width: auto;
 			}
