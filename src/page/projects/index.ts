@@ -30,14 +30,31 @@ export default (paths: Array<string>): CallbackOptions => {
 
 	const body = `
 <style>
-	oo-projects {
+	article {
+		width: 100%;
+	}
+	header {
+		text-align: center;
+		padding: 8rem 1rem;
+	}
+	h1 {
+		margin: 0;
+		word-break: break-all;
+		font-size: 2rem;
+		@media (min-width: 768px) {
+			font-size: 3rem;
+		}
+		&::before {
+			content: '#';
+		}
+	}
+	section {
 		padding: 0 1rem;
+	}
+	oo-projects {
 		width: 100%;
 		margin: auto;
-		box-sizing: border-box;
-		@media (min-width: 768px) {
-			padding: 0 3rem;
-		}
+		max-width: 700px;
 	}
 </style>
 ${_nav()}

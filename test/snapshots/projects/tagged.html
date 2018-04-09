@@ -201,19 +201,37 @@ oo-nav a[href='/community']::after {
 	<body>
 
 <style>
-	oo-projects {
-		padding: 0 16px;
-		padding: 0 1rem;
+	article {
 		width: 100%;
-		margin: auto;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
 	}
-		@media (min-width: 768px) {
-	oo-projects {
-			padding: 0 3rem
+	header {
+		text-align: center;
+		padding: 128px 16px;
+		padding: 8rem 1rem;
+	}
+	h1 {
+		margin: 0;
+		word-break: break-all;
+		font-size: 32px;
+		font-size: 2rem;
+	}
+	@media (min-width: 768px) {
+	h1 {
+			font-size: 3rem
 	}
 		}
+	h1::before {
+			content: '#';
+		}
+	section {
+		padding: 0 16px;
+		padding: 0 1rem;
+	}
+	oo-projects {
+		width: 100%;
+		margin: auto;
+		max-width: 700px;
+	}
 </style>
 
 <style>
@@ -314,42 +332,14 @@ oo-nav a[href='/community']::after {
 
 <main>
 
-	<style>
-		.wrap {
-			width: 100%;
-			background: #FFEB3B;
-			height: 100vh;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-			    -ms-flex-direction: column;
-			        flex-direction: column;
-			-webkit-box-pack: center;
-			    -ms-flex-pack: center;
-			        justify-content: center;
-			-webkit-box-align: center;
-			    -ms-flex-align: center;
-			        align-items: center;
-		}
-			.wrap h1 {
-				font-size: 48px;
-				font-size: 3rem;
-			}
-			.wrap h1,.wrap h2 {
-				margin-top: 0;
-				margin-bottom: 32px 0;
-				margin-bottom: 2rem 0;
-			}
-	</style>
-	<div class=wrap>
-		<h1>👨‍💻⏳</h1>
-		<h2>#xxx</h2>
-		<div class=trello>
-			<blockquote class="trello-card"><a href="https://trello.com/c/8NTHOaWA/4-tagging-to-posts">Tagging to posts</a></blockquote><script src="https://p.trellocdn.com/embed.min.js"></script>
-		</div>
-	</div>
+	<article>
+		<header>
+			<h1>xxx</h1>
+		</header>
+		<section>
+			<oo-projects data-tag=xxx></oo-projects>
+		</section>
+	</article>
 
 
 <oo-footer>
