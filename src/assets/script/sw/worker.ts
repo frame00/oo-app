@@ -1,6 +1,6 @@
 import matches from './lib/matches-path-pattern'
 import onForeground from './lib/on-foreground'
-import {SWMessageEvent} from '../../../type/sw'
+import {ClientToSWMessageEvent} from '../../../type/sw'
 import precacheUrls from './lib/precache-urls'
 
 ((self: ServiceWorkerGlobalScope) => {
@@ -48,7 +48,7 @@ import precacheUrls from './lib/precache-urls'
 		}
 	})
 
-	self.addEventListener('message', (e: SWMessageEvent) => {
+	self.addEventListener('message', (e: ClientToSWMessageEvent) => {
 		const {data} = e
 		switch (data) {
 			case 'foreground':

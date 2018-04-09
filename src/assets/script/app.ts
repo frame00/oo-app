@@ -1,14 +1,14 @@
-import {SWMessage} from '../../type/sw'
+import {ClientToSWMessage, SWToClientMessageEvent, SWToClientMessage} from '../../type/sw'
 
 const script = (() => {
 	if ('serviceWorker' in navigator) {
-		const sendMessage = (message: SWMessage) => {
-			return new Promise<any>((resolve, reject) => {
+		const sendMessage = (message: ClientToSWMessage) => {
+			return new Promise<SWToClientMessage>((resolve, reject) => {
 				const channel = new MessageChannel()
-				channel.port1.onmessage = e => {
+				channel.port1.onmessage = (e: SWToClientMessageEvent) => {
 					const {data} = e
-					if (data.error) {
-						reject(data.error)
+					if (!data) {
+						reject(data)
 					} else {
 						resolve(data)
 					}
@@ -24,7 +24,7 @@ const script = (() => {
 		(navigator as Navigator).serviceWorker.register('/sw.js').then(() => {
 			return sendMessage('foreground')
 		}).then(message => {
-			if (message === 'hasUpdate') {
+			if (message === 'newVersionAvailable') {
 				const update = document.getElementById('updateToast')
 				if (update) {
 					update.style.display = 'block'
