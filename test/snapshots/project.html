@@ -211,13 +211,7 @@ oo-nav a[href='/community']::after {
 
 <style>oo-project {
 	display: block;
-	margin: 16px;
-	margin: 1rem;
 }
-	@media (min-width: 768px) {oo-project {
-		margin: 3rem 0
-}
-	}
 oo-forks {
 	margin-top: 32px;
 	margin-top: 2rem;
@@ -238,9 +232,17 @@ article h2 {
 		margin-top: 0;
 	}
 article section {
-		margin: auto;
 		max-width: 700px;
+		margin: 16px auto;
+		margin: 1rem auto;
+		padding: 0 16px;
+		padding: 0 1rem;
 	}
+@media (min-width: 768px) {
+article section {
+			margin: 3rem auto
+	}
+		}
 .column {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -311,6 +313,71 @@ article section {
 			width: 30%;
 			padding: 0 2rem;
 		}
+	}
+aside {
+	overflow: hidden;
+	background: #ffeb3b;
+	text-align: center;
+}
+aside section {
+		margin: 48px auto;
+		margin: 3rem auto;
+	}
+aside h2, aside h3 {
+		margin: 0;
+	}
+aside h2 {
+		margin: 48px 0;
+		margin: 3rem 0;
+	}
+aside h3 {
+		margin-bottom: 16px;
+		margin-bottom: 1rem;
+	}
+aside .col {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+	}
+@media (min-width: 768px) {
+aside .col {
+			-webkit-box-orient: horizontal;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: row;
+			        flex-direction: row
+	}
+		}
+aside .col > div {
+			padding: 0 64px;
+			padding: 0 4rem;
+			margin-bottom: 48px;
+			margin-bottom: 3rem;
+		}
+aside .col p {
+			margin: 0;
+			font-size: 16px;
+			font-size: 1rem;
+			font-weight: 700;
+		}
+aside .col img {
+			max-width: 100%;
+			mix-blend-mode: multiply;
+			-webkit-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+aside a {
+		margin: auto;
+		display: inline-block;
+		padding: 16px 32px;
+		padding: 1rem 2rem;
+		border-radius: 99px;
+		text-decoration: none;
+		background: #673AB7;
+		color: white;
 	}
 </style>
 
@@ -416,6 +483,24 @@ article section {
 			<oo-project data-uid=xxx on-messagesent on-projectcreated></oo-project>
 
 		</section>
+		<aside id=whatsDoubleO>
+			<section>
+				<h2>What's Double O?</h2>
+				<div class=col>
+					<div>
+						<h3>Ask Me Anything</h3>
+						<p><img src=//uploads-ssl.webflow.com/5ab9ebdbc827a63d89277323/5aba25ac54d3df35790f2517_oo-what-events-p-500.png /></p>
+						<p>You can start "Ask Me Anything" right away.</p>
+					</div>
+					<div>
+						<h3>Micro Knowledge</h3>
+						<p><img src=//uploads-ssl.webflow.com/5ab9ebdbc827a63d89277323/5ac1f424b3e0cbf83b730e81_oo-what-micro-p-500.png /></p>
+						<p>Write in 30 seconds, Goodbye blog.</p>
+					</div>
+				</div>
+				<a href=/sign>Sign Up Free</a>
+			</section>
+		</aside>
 	</article>
 
 
@@ -427,6 +512,19 @@ article section {
 	<a slot=item href="/articles/law">特定商取引法に基づく表記</a>
 </oo-footer>
 </main>
+
+	<script>
+		(() => {
+			const uid = window.localStorage.getItem('oo:uid')
+			if(uid && uid !== 'undefined') {
+				const whats = document.getElementById('whatsDoubleO')
+				if (whats) {
+					whats.parentNode.removeChild(whats)
+				}
+			}
+		})()
+	</script>
+
 
 
 <script>
