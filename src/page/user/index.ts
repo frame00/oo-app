@@ -18,6 +18,7 @@ import expSlug from '../../lib/exp-slug'
 import whenSignedIn from './script/when-signed-in'
 import projectsExists from './script/projects-exists'
 import tweet from '../../lib/tweet'
+import onProjectCreated from '../../lib/on-project-created'
 
 const onClickHandler = (id: string) => `document.getElementById('${id}').setAttribute('data-open', 'enabled'); return false;`
 
@@ -92,6 +93,7 @@ ${deleteAccount().template}
 </main>
 ${whenSignedIn()}
 ${projectsExists(userUid)}
+${onProjectCreated}
 ${expIam(true)}
 ${expSlug(true)}
 	`
