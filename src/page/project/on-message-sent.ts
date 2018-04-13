@@ -5,7 +5,7 @@ const dummyImage = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAA
 
 export default (paths: Array<string>, uid: string, count: number) => {
 	if (count < 100) {
-		const next = count > 1 ? 1 : count
+		const next = count + 1
 		return `
 		<script>
 			(() => {
