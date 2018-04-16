@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 
@@ -10,10 +11,10 @@
 		<meta property=og:title content="Double O - Ask Me Anything" />
 		<meta name=twitter:title content="Double O - Ask Me Anything">
 		<meta property=og:url content="xxx" />
-		<meta property=og:image content=https://og.images.ooapp.co/xxx?0 />
+		<meta property=og:image content=https://og.images.ooapp.co/xxx?838 />
 		<meta property=og:image:width content=1200 />
 		<meta property=og:image:height content=630 />
-		<meta name=twitter:image content=https://og.images.ooapp.co/xxx?0>
+		<meta name=twitter:image content=https://og.images.ooapp.co/xxx?838>
 		<meta name=twitter:card content=summary_large_image />
 		<meta name=twitter:site content=@ooappco />
 	<link rel="preload" as="script" href="//elements.ooapp.co/stable/oo-elements.js">
@@ -230,6 +231,16 @@ article oo-profile {
 article.content {
 		max-width: 700px;
 	}
+aside.promote {
+		width: 100%;
+		background: #FFC107;
+		text-align: center;
+		padding: 8px;
+		padding: 0.5rem;
+	}
+aside.promote a {
+			color: white;
+		}
 a {
 	color: #3f51b5;
 }
@@ -403,7 +414,7 @@ oo-modal#delete [slot=body] {
 
 		</div>
 
-				<div class=items>
+				<div class='items needs-signed-in'>
 					<a href=# onclick="document.getElementById('post').setAttribute('data-open', 'enabled'); return false;">Write a post</a><a href=# onclick="document.getElementById('settings').setAttribute('data-open', 'enabled'); return false;">Profile and settings</a><a href=# onclick="document.getElementById('usage').setAttribute('data-open', 'enabled'); return false;">Your buttons</a><oo-sign-out></oo-sign-out>
 				</div>
 
@@ -515,6 +526,9 @@ oo-modal#delete [slot=body] {
 	</oo-modal>
 
 <main>
+	<aside class=promote>
+		<a href=//amas.ooapp.co target=_blank rel=noopener>Ask Me Anything Events ↗</a>
+	</aside>
 	<div class=ask>
 		<oo-ask class=content data-iam=xxx data-sign-in-flow=redirect></oo-ask>
 	</div>
@@ -567,9 +581,11 @@ oo-modal#delete [slot=body] {
 		(() => {
 			const uid = window.localStorage.getItem('oo:uid')
 			if(uid && uid !== 'undefined') return
-			const navItems = document.querySelector('nav .items')
-			if (navItems) {
-				navItems.parentNode.removeChild(navItems)
+			const els = Array.from(document.querySelectorAll('.needs-signed-in'))
+			if (els) {
+				els.forEach(el => {
+					el.parentNode.removeChild(el)
+				})
 			}
 		})()
 	</script>
