@@ -4,9 +4,11 @@ export default () => {
 		(() => {
 			const uid = window.localStorage.getItem('oo:uid')
 			if(uid && uid !== 'undefined') return
-			const navItems = document.querySelector('nav .items')
-			if (navItems) {
-				navItems.parentNode.removeChild(navItems)
+			const els = Array.from(document.querySelectorAll('.needs-signed-in'))
+			if (els) {
+				els.forEach(el => {
+					el.parentNode.removeChild(el)
+				})
 			}
 		})()
 	</script>

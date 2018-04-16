@@ -61,12 +61,15 @@ ${_nav([
 	`<a href=# onclick="${onClickHandler(settings().id)}">Profile and settings</a>`,
 	`<a href=# onclick="${onClickHandler(usage().id)}">Your buttons</a>`,
 	`<oo-sign-out></oo-sign-out>`
-])}
+], {itemsClassName: 'needs-signed-in'})}
 ${post().template}
 ${settings().template}
 ${usage().template}
 ${deleteAccount().template}
 <main>
+	<aside class=promote>
+		<a href=//amas.ooapp.co target=_blank rel=noopener>Ask Me Anything Events ↗</a>
+	</aside>
 	<div class=ask>
 		<oo-ask class=content data-iam=${userUid} data-sign-in-flow=redirect></oo-ask>
 	</div>

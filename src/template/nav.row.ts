@@ -1,7 +1,10 @@
 import logo from './logo'
 import version from './version'
 
-export default (links: Array<string> = []): string => {
+export default (links: Array<string> = [], opts?: {
+	itemsClassName: string
+}): string => {
+	const {itemsClassName = ''} = opts || {}
 	return `
 <style>
 	nav {
@@ -71,7 +74,7 @@ export default (links: Array<string> = []): string => {
 		${(() => {
 			if (links.length > 0) {
 				return `
-				<div class=items>
+				<div class='items ${itemsClassName}'>
 					${links.join('')}
 				</div>
 				`
