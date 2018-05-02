@@ -67,9 +67,6 @@ ${settings().template}
 ${usage().template}
 ${deleteAccount().template}
 <main>
-	<aside class=promote>
-		<a href=//amas.ooapp.co target=_blank rel=noopener>Ask Me Anything Events ↗</a>
-	</aside>
 	<div class=ask>
 		<oo-ask class=content data-iam=${userUid} data-sign-in-flow=redirect></oo-ask>
 	</div>
