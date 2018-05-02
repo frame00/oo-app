@@ -56,7 +56,7 @@ export default () => `
 					align-items: center;
 					box-sizing: border-box;
 					background: aliceblue;
-					font-weight: 600;
+					font-weight: bold;
 					border-radius: 14px;
 					p {
 						margin: 0;
