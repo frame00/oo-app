@@ -174,7 +174,10 @@ export default () => `
 			els.forEach(el => {
 				el.addEventListener('click', e => {
 					const text = e.target.innerText || ''
-					text && ga && ga('send', 'event', 'pilot', 'click', text.trim())
+					gtag && gtag('event', 'click', {
+						event_category: 'pilot',
+						event_label: text.trim()
+					})
 					modal.setAttribute('data-open', 'enabled')
 				})
 			})
