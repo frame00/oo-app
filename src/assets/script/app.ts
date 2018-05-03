@@ -1,6 +1,20 @@
 import {ClientToSWMessage, SWToClientMessageEvent, SWToClientMessage} from '../../type/sw'
 
 const script = (() => {
+	const updateToast = () => {
+		const update = document.getElementById('updateToast')
+		if (update) {
+			update.style.display = 'block'
+		}
+	}
+	const messageHandler = (message: SWToClientMessage) => {
+		switch(message) {
+			case 'newVersionAvailable':
+				updateToast()
+				break
+			default:
+		}
+	}
 	if ('serviceWorker' in navigator) {
 		const sendMessage = (message: ClientToSWMessage) => {
 			return new Promise<SWToClientMessage>((resolve, reject) => {
@@ -22,14 +36,14 @@ const script = (() => {
 		}
 
 		(navigator as Navigator).serviceWorker.register('/sw.js').then(() => {
-			return sendMessage('foreground')
+			return sendMessage({type: 'foreground', url: window.location.href})
 		}).then(message => {
-			if (message === 'newVersionAvailable') {
-				const update = document.getElementById('updateToast')
-				if (update) {
-					update.style.display = 'block'
-				}
-			}
+			messageHandler(message)
+		})
+
+		; (navigator as Navigator).serviceWorker.addEventListener('message', (e: SWToClientMessageEvent) => {
+			const {data} = e
+			messageHandler(data)
 		})
 	}
 })

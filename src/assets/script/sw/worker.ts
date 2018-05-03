@@ -1,5 +1,6 @@
 import matches from './lib/matches-path-pattern'
 import onForeground from './lib/on-foreground'
+import afterCachedResponse from './lib/after-cached-response'
 import {ClientToSWMessageEvent} from '../../../type/sw'
 import precacheUrls from './lib/precache-urls'
 
@@ -30,7 +31,7 @@ import precacheUrls from './lib/precache-urls'
 		event.waitUntil(handler())
 	})
 
-	self.addEventListener('fetch', event => {
+	self.addEventListener('fetch', async event => {
 		const {request} = event
 		const {url} = request
 		if (matches(url)) {
@@ -44,13 +45,15 @@ import precacheUrls from './lib/precache-urls'
 				await cache.put(request, response.clone())
 				return response
 			}
-			event.respondWith(handler())
+			await event.respondWith(handler())
+			await afterCachedResponse(event, CACHE)
 		}
 	})
 
 	self.addEventListener('message', (e: ClientToSWMessageEvent) => {
 		const {data} = e
-		switch (data) {
+		const {type} = data
+		switch (type) {
 			case 'foreground':
 				onForeground(e, CACHE)
 				break
