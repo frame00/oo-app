@@ -1,6 +1,5 @@
 import matches from './lib/matches-path-pattern'
 import onForeground from './lib/on-foreground'
-import afterCachedResponse from './lib/after-cached-response'
 import {ClientToSWMessageEvent} from '../../../type/sw'
 import precacheUrls from './lib/precache-urls'
 
@@ -46,7 +45,6 @@ import precacheUrls from './lib/precache-urls'
 				return response
 			}
 			await event.respondWith(handler())
-			await afterCachedResponse(event, CACHE)
 		}
 	})
 
