@@ -19,7 +19,6 @@ import whenSignedIn from './script/when-signed-in'
 import projectsExists from './script/projects-exists'
 import tweet from '../../lib/tweet'
 import onProjectCreated from '../../lib/on-project-created'
-import pilot from './pilot'
 
 const onClickHandler = (id: string) => `document.getElementById('${id}').setAttribute('data-open', 'enabled'); return false;`
 
@@ -71,7 +70,6 @@ ${deleteAccount().template}
 	<div class=ask>
 		<oo-ask class=content data-iam=${userUid} data-sign-in-flow=redirect></oo-ask>
 	</div>
-	${pilot()}
 	<article class=content>
 		<oo-projects id=projects class=wait data-iam=${userUid}></oo-projects>
 		<section id=guide class=wait>
